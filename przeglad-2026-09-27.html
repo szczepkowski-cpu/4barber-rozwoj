@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Przegląd obecnego 4barber.pl — 27.09.2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Strona przeglądu: zrzuty żywego sklepu (27.09.2026) z diagnozą — co zostaje, co blokuje sprzedaż. */
+:root{--ink:#121212;--ink-2:#5C5A56;--line:#E4E2DD;--red:#C61D2E;--green:#1E7B3A;--bg:#FFFFFF;--panel:#F6F5F2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Barlow,system-ui,sans-serif}
+::selection{background:var(--red);color:#fff}
+a{color:var(--red);text-underline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.h{padding:40px 0 20px;border-bottom:1px solid var(--line)}
+h1{font:600 44px/1 'Barlow Condensed',sans-serif;margin:0 0 10px;letter-spacing:-.01em}
+h2{font:600 30px/1 'Barlow Condensed',sans-serif;margin:0 0 14px}
+h3{font:600 17px/1.3 Barlow,sans-serif;margin:0 0 6px}
+p{margin:0}
+.lead{color:var(--ink-2);max-width:70ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
+.facts div{padding:14px;background:var(--panel);border-radius:6px;font-size:14px}
+.facts b{display:block;font:600 26px/1 'Barlow Condensed',sans-serif;margin-bottom:4px}
+section.place{padding:36px 0 8px;border-bottom:1px solid var(--line)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:14px 0 18px}
+.shots figure{margin:0}
+.shots img{width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+.shots figcaption{font-size:13px;color:var(--ink-2);margin-top:6px}
+.shots .wide{grid-column:span 2}
+.diag{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.diag ul{margin:0;padding-left:18px}
+.diag li{margin-bottom:6px}
+.keep h3{color:var(--green)}
+.block h3{color:var(--red)}
+.verdict{margin:36px 0 60px;padding:24px;background:var(--ink);color:#fff;border-radius:8px}
+.verdict h2{color:#fff}
+.verdict ol{margin:0;padding-left:20px}
+.verdict li{margin-bottom:8px}
+.verdict a{color:#fff}
+small.src{display:block;color:var(--ink-2);font-size:13px;margin-top:10px}
+@media (max-width:760px){.diag{grid-template-columns:1fr}.shots .wide{grid-column:span 1}h1{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="h">
+  <h1>Obecny 4barber.pl — przegląd z 27.09.2026</h1>
+  <p class="lead">Oglądane jak klient z reklamy: telefon 390×844 i desktop 1440. Strona główna, kategoria Maszynki, karta bestsellera NG-139, moment po dodaniu do koszyka, koszyk. Wszystkie liczby ze zrzutów i HTML sklepu (Shoper Premium), odczyt 27.09.2026 ok. 20:45.</p>
+  <div class="facts">
+    <div><b>≈1 900 px</b>od góry do „Dodaj do koszyka” na telefonie (ponad 2 ekrany; zrzut m-pdp p1–p2)</div>
+    <div><b>3 warstwy</b>przy wejściu na telefonie: pasek gratisów + modal cookies + popup „Zgarnij tajną zniżkę” (edrone)</div>
+    <div><b>brak</b>przyklejonego „Dodaj do koszyka” na telefonie — dolny pasek to Menu/Szukaj/Konto/Koszyk</div>
+    <div><b>8 360 px</b>długość strony głównej na telefonie; karta produktu 6 300 px</div>
+  </div>
+</header>
+
+<section class="place">
+  <h2>Strona główna</h2>
+  <div class="shots">
+    <figure><img src="zrzuty/audyt-2026-09-27/m-home-fold.jpg" width="390" height="844" alt="Strona główna na telefonie: popup zniżki nad modalem cookies" loading="lazy"><figcaption>Telefon, wejście: popup edrone „Zgarnij tajną zniżkę” na modalu cookies; hero niewidoczne.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-home-full-p1.jpg" width="390" height="1700" alt="Strona główna na telefonie: hero i sekcje tekstowe" loading="lazy"><figcaption>Telefon, pierwsze 1 700 px: dwa długie bloki tekstu przed pierwszą kategorią.</figcaption></figure>
+    <figure class="wide"><img src="zrzuty/audyt-2026-09-27/d-home-fold.jpg" width="1440" height="900" alt="Strona główna na desktopie: hero HEDCOMET, pasek USP" loading="lazy"><figcaption>Desktop: hero nowej marki HEDCOMET, pasek 6 USP, licznik wysyłki. Czytelna nawigacja.</figcaption></figure>
+  </div>
+  <div class="diag">
+    <div class="keep"><h3>Zostaje</h3><ul><li>Pasek USP: „Oficjalny dystrybutor WMARK”, „Serwis i gwarancja door2door”, „Dostawa 24 h — darmowa od 250 zł” — to realne przewagi, mocno napisane.</li><li>Ton „bez wciskania, że każdy sprzęt jest dla każdego” — rzadki i wiarygodny.</li><li>Sekcja „Co mówią barberzy i klienci” z nazwiskami i Instagramem.</li><li>Kondensowane nagłówki (Barlow/Oswald) + czerwień #C61D2E — rozpoznawalne.</li></ul></div>
+    <div class="block"><h3>Blokuje sprzedaż</h3><ul><li>Trzy warstwy przy wejściu na telefonie — klient z reklamy zamyka dwa okna, zanim zobaczy produkt.</li><li>Na telefonie zamiast produktów: ~1 000 px tekstu o sklepie („Profesjonalny sprzęt…”, „Sklep barberski ze sprzętem…”).</li><li>Dwa kolory akcji: czerwień marki i pomarańcz przycisków — oko nie wie, co jest „kup”.</li></ul></div>
+  </div>
+</section>
+
+<section class="place">
+  <h2>Kategoria: Maszynki</h2>
+  <div class="shots">
+    <figure><img src="zrzuty/audyt-2026-09-27/m-plp-maszynki-full-p1.jpg" width="390" height="1700" alt="Kategoria Maszynki na telefonie" loading="lazy"><figcaption>Telefon: karty 2 w rzędzie, cena, „Wysyłka w 24h”, przycisk — czytelne.</figcaption></figure>
+    <figure class="wide"><img src="zrzuty/audyt-2026-09-27/d-plp-maszynki-fold.jpg" width="1440" height="900" alt="Kategoria Maszynki na desktopie" loading="lazy"><figcaption>Desktop: filtry cena / marka (tylko WMARK, 32) / dostępność. 32 produkty, 2 strony.</figcaption></figure>
+  </div>
+  <div class="diag">
+    <div class="keep"><h3>Zostaje</h3><ul><li>Karta produktu na liście: zdjęcie / nazwa / cena / status dostępności / przycisk — kompletna, bez szumu.</li><li>Uczciwe „W oczekiwaniu na dostawę” + „Powiadom mnie”.</li></ul></div>
+    <div class="block"><h3>Blokuje sprzedaż</h3><ul><li>Filtr „Marka” ma jedną wartość (WMARK 32/32) — zajmuje miejsce, nic nie filtruje. Brak filtrów, które klient rozumie: zakres długości, do salonu/do domu, cena od–do jako suwak.</li><li>Kolory NG-139 to 4 osobne karty (Czarna, Różowa, Pomarańczowa, Żółta) — rozmywa bestseller i wydłuża listę.</li><li>Ta sama nawigacja z popupami co na stronie głównej.</li></ul></div>
+  </div>
+</section>
+
+<section class="place">
+  <h2>Karta produktu: Maszynka WMARK NG-139 Czarna (bestseller, 229,99 zł)</h2>
+  <div class="shots">
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-fold-clean.jpg" width="390" height="844" alt="Karta NG-139 na telefonie, pierwszy ekran" loading="lazy"><figcaption>Telefon, pierwszy ekran (po zamknięciu okien): zdjęcie i licznik wysyłki. Bez ceny, bez nazwy, bez przycisku — przycisk na dole to przypadkowy fragment po przewinięciu przez modal.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-full-p1.jpg" width="390" height="1700" alt="Karta NG-139 na telefonie, 0–1700 px" loading="lazy"><figcaption>0–1 700 px: nazwa, ocena, długa lista ✓ parametrów, czerwony „Przejdź do pełnego opisu”, cena 229,99, ikony zaufania, wielkie kafle wariantów. Przycisku kupna wciąż nie ma.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-full-p2.jpg" width="390" height="1700" alt="Karta NG-139 na telefonie, 1700–3400 px" loading="lazy"><figcaption>1 700–3 400 px: „Dodaj do koszyka” dopiero tutaj (≈1 900 px), potem baner rat i czarny prostokąt wideo (embed YouTube nie ładuje się w podglądzie).</figcaption></figure>
+    <figure class="wide"><img src="zrzuty/audyt-2026-09-27/d-pdp-ng139-fold.jpg" width="1440" height="900" alt="Karta NG-139 na desktopie" loading="lazy"><figcaption>Desktop: dwa łamy, nazwa, ocena 5.00 (13), parametry, cena 229,99 zł, ikony zaufania — ale „Dodaj do koszyka” jest pod dolną krawędzią ekranu 900 px.</figcaption></figure>
+  </div>
+  <div class="diag">
+    <div class="keep"><h3>Zostaje</h3><ul><li>Treść karty jest dobra: parametry, „Co wyróżnia”, „Dla kogo”, FAQ, ostrzeżenie o ładowarce, wideo — to fakty, nie marketing.</li><li>Ocena 5.00 z 13 ocen i 2 recenzjami, licznik „paczka jutro”, „Wysyłka w 24 h”, 4 ikony zaufania (Doradztwo barbera, Serwis w Polsce, Oryginalny sprzęt, Sprawdzone przez barberów).</li><li>Modal po dodaniu do koszyka (niżej) — wzorowy.</li></ul></div>
+    <div class="block"><h3>Blokuje sprzedaż</h3><ul><li><b>Cena i przycisk poza pierwszym ekranem</b> na telefonie i desktopie; na telefonie przycisk po ≈1 900 px i bez wersji przyklejonej — po przewinięciu do opisu klient musi wracać.</li><li>Kolejność odwrotna do decyzji: parametry (7 wierszy) przed ceną; czerwony przycisk „Przejdź do pełnego opisu” konkuruje z pomarańczowym „Dodaj”.</li><li>Warianty kolorów jako 4 wielkie kafle (~700 px) między ceną a przyciskiem.</li><li>Trzy liczby, które sprzedają tę maszynkę (8000–8500 obr./min, 8 nasadek 3–25 mm, ceramika) są ukryte w tekście opisu poniżej wideo.</li><li>Opinie barberów z nazwiskiem są tylko na stronie głównej — na karcie ich nie ma.</li><li>Wideo nie ma miniatury (czarny prostokąt do czasu załadowania YouTube).</li></ul></div>
+  </div>
+</section>
+
+<section class="place">
+  <h2>Po dodaniu do koszyka i koszyk</h2>
+  <div class="shots">
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-after-atc.jpg" width="390" height="844" alt="Panel Dodano do koszyka na telefonie" loading="lazy"><figcaption>Telefon: „Dodano do koszyka” — pasek do darmowej dostawy (brakuje 20,01 zł), „Skompletuj zestaw”, dwa jasne wyjścia. Najlepszy ekran sklepu.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-cart-fold.jpg" width="390" height="844" alt="Koszyk na telefonie" loading="lazy"><figcaption>Telefon, koszyk: pozycja, ilość, „Usuń wszystkie” nad produktem, szare kafle „Dobierz darmowe produkty” z powtórzonym „Dodaj jeszcze 369,01 zł”.</figcaption></figure>
+    <figure class="wide"><img src="zrzuty/audyt-2026-09-27/d-cart-fold.jpg" width="1440" height="900" alt="Koszyk na desktopie" loading="lazy"><figcaption>Desktop, koszyk: podsumowanie z dostawą 9,99 zł i „Zamawiam i płacę” od razu widoczne; checkout na tej samej stronie (dane, płatność, dostawa).</figcaption></figure>
+  </div>
+  <div class="diag">
+    <div class="keep"><h3>Zostaje</h3><ul><li>Checkout jednostronicowy, gość bez konta, InPost Paczkomat/Kurier 9,99 zł, BLIK/Apple/Google Pay/raty/PayPo — wszystko, co zaleca CRO, już jest.</li><li>Pasek do darmowej dostawy w modalu.</li></ul></div>
+    <div class="block"><h3>Blokuje sprzedaż</h3><ul><li>Pasek do darmowej dostawy jest tylko w modalu — w samym koszyku go nie ma; zamiast tego 5 szarych kafli gratisów (próg 599 zł) z komunikatem „brakuje 369,01 zł” — dla klienta z koszykiem 230 zł to szum.</li><li>„Usuń wszystkie produkty” to pierwszy przycisk w koszyku na telefonie.</li></ul></div>
+  </div>
+</section>
+
+<div class="verdict">
+  <h2>Wniosek: karta produktu to miejsce, gdzie ucieka najwięcej</h2>
+  <ol>
+    <li>Treść jest dobra — problem to <b>kolejność i odległość do przycisku</b>. Na telefonie klient z reklamy widzi zdjęcie i licznik, a cena i „Dodaj” są dwa ekrany niżej, bez wersji przyklejonej.</li>
+    <li>Trzy propozycje karty (linki w galerii) rozwiązują to samo trzema sposobami: v1 — ten sam wygląd, nowa kolejność i sticky CTA; v2 — karta wokół dowodu barberów na ciemnym stanowisku; v3 — karta techniczna maszyny z liczbami i skalą.</li>
+    <li>Po wyborze kierunku: strona główna (warstwy przy wejściu, tekst przed produktami), kategoria (filtry, warianty), koszyk (pasek darmowej dostawy zamiast kafli gratisów).</li>
+  </ol>
+  <small class="src" style="color:#B8B4AD">Źródła: zrzuty w <code>zrzuty/audyt-2026-09-27/</code>, fakty produktu w <code>dane/ng139-2026-09-27.md</code>. Żywy sklep oglądany read-only; dodanie do koszyka w sesji anonimowej bez zamówienia.</small>
+</div>
+</div>
+</body>
+</html>

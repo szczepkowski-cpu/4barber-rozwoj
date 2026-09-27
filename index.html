@@ -4,12 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>4barber — rozwój sklepu</title>
+<title>4barber — rozwój sklepu · galeria wersji</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600&display=swap" rel="stylesheet">
+<style>
+/* Galeria wersji: każda pozycja = strona makiety + zrzuty; poprzednie wersje zostają. */
+:root{--ink:#121212;--ink-2:#5C5A56;--line:#E4E2DD;--red:#C61D2E;--panel:#F6F5F2}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font:400 16px/1.55 Barlow,system-ui,sans-serif;background:#fff}
+::selection{background:var(--red);color:#fff}
+.wrap{max-width:1100px;margin:0 auto;padding:40px 20px 60px}
+h1{font:600 44px/1 'Barlow Condensed',sans-serif;margin:0 0 8px}
+h2{font:600 28px/1 'Barlow Condensed',sans-serif;margin:40px 0 14px}
+p{margin:0}
+.lead{color:var(--ink-2);max-width:70ch}
+a{color:var(--red);text-underline-offset:3px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;display:grid;grid-template-rows:auto 1fr}
+.card img{width:100%;height:220px;object-fit:cover;object-position:top;border-bottom:1px solid var(--line);background:var(--panel)}
+.card .b{padding:16px;display:grid;gap:8px;align-content:start}
+.card h3{margin:0;font:600 22px/1.1 'Barlow Condensed',sans-serif}
+.card .chip{display:inline-block;font-size:12px;padding:3px 8px;border-radius:999px;background:var(--ink);color:#fff;margin-right:6px}
+.card .chip.rec{background:var(--red)}
+.card p{font-size:15px;color:var(--ink-2)}
+.card .links{display:flex;gap:14px;flex-wrap:wrap;font-size:15px;font-weight:500}
+.audit{display:grid;grid-template-columns:1fr 2fr;gap:20px;padding:20px;background:var(--panel);border-radius:8px;align-items:center}
+.audit img{width:100%;border:1px solid var(--line);border-radius:6px}
+@media (max-width:700px){.audit{grid-template-columns:1fr}h1{font-size:34px}}
+</style>
 </head>
 <body>
-<main>
-<h1>4barber — rozwój sklepu</h1>
-<p>Tu pojawią się kolejne wersje.</p>
-</main>
+<div class="wrap">
+  <h1>4barber — rozwój sklepu</h1>
+  <p class="lead">Makiety nowej wersji 4barber.pl budowane od obecnego sklepu. Dane produktu (ceny, parametry, opinie) z żywego sklepu, z datą odczytu. Repo publiczne, publikacja przez GitHub Pages.</p>
+
+  <h2>Przegląd „jak jest” — 27.09.2026</h2>
+  <div class="audit">
+    <img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-fold-clean.jpg" width="390" height="844" alt="Obecna karta NG-139 na telefonie" loading="lazy">
+    <div><p><a href="przeglad-2026-09-27.html">Przegląd obecnego sklepu ze zrzutami i diagnozą →</a></p><p class="lead" style="margin-top:8px">Strona główna, kategoria, karta bestsellera NG-139, po dodaniu do koszyka, koszyk. Co zostaje, co blokuje sprzedaż. Główny wniosek: na karcie produktu cena i „Dodaj do koszyka” są dwa ekrany pod pierwszym widokiem telefonu, bez wersji przyklejonej.</p></div>
+  </div>
+
+  <h2>Karta produktu: Maszynka WMARK NG-139 Czarna — trzy propozycje</h2>
+  <div class="cards">
+    <article class="card">
+      <img src="zrzuty/pdp-v1/m-fold.png" width="390" height="844" alt="v1 — pierwszy ekran na telefonie" loading="lazy">
+      <div class="b"><div><span class="chip">v1</span><span class="chip" style="background:var(--ink-2)">ostrożna ewolucja</span></div><h3>„Porządek” — ten sam sklep, nowa kolejność</h3><p>Wygląd obecnego 4barber.pl 1:1 (Inter, biel, pomarańczowy przycisk), ale cena, dostępność i „Dodaj do koszyka” w pierwszym ekranie telefonu, sticky CTA, swatche kolorów zamiast kafli, opinie barberów na karcie.</p><div class="links"><a href="pdp-v1.html">Otwórz v1</a></div></div>
+    </article>
+    <article class="card">
+      <img src="zrzuty/pdp-v2/m-fold.png" width="390" height="844" alt="v2 — pierwszy ekran na telefonie" loading="lazy">
+      <div class="b"><div><span class="chip">v2</span><span class="chip" style="background:var(--ink-2)">środek</span></div><h3>„Stanowisko” — karta wokół dowodu barberów</h3><p>Ciemne stanowisko z matą, produkt jako wycinanka, trzy liczby, które barber sprawdza w ręku, nazwiska i twarze barberów, czerwony przycisk marki. Sekcje parametrów na papierowej bieli.</p><div class="links"><a href="pdp-v2.html">Otwórz v2</a></div></div>
+    </article>
+    <article class="card">
+      <img src="zrzuty/pdp-v3/m-fold.png" width="390" height="844" alt="v3 — pierwszy ekran na telefonie" loading="lazy">
+      <div class="b"><div><span class="chip">v3</span><span class="chip" style="background:var(--ink-2)">śmiała przebudowa</span></div><h3>„Karta techniczna” — maszyna w liczbach</h3><p>Czarny arkusz specyfikacji: NG-139 w skali arkusza, cztery zmierzone liczby, linijka nasadek 3–25 mm do dotknięcia, skala obrotów, lista części. Przycisk kupna przyklejony od pierwszej sekundy.</p><div class="links"><a href="pdp-v3.html">Otwórz v3</a></div></div>
+    </article>
+  </div>
+</div>
 </body>
 </html>
