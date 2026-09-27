@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<title>4barber — karta produktu: przegląd i propozycje (27.09.2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Raport do druku (A4): przegląd obecnego sklepu + propozycje karty NG-139; renderowany do PDF przez Playwright. */
+@page{size:A4;margin:14mm 14mm 16mm}
+:root{--ink:#121212;--ink-2:#5C5A56;--line:#E4E2DD;--red:#C61D2E;--panel:#F6F5F2;--green:#1E7B3A}
+*{box-sizing:border-box}
+html,body{margin:0;color:var(--ink);font:400 10.5pt/1.45 Barlow,system-ui,sans-serif;background:#fff}
+h1{font:700 30pt/1 'Barlow Condensed',sans-serif;margin:0 0 6mm;letter-spacing:-.01em}
+h2{font:600 20pt/1 'Barlow Condensed',sans-serif;margin:0 0 4mm;padding-bottom:2mm;border-bottom:1px solid var(--line)}
+h3{font:600 12pt/1.25 Barlow,sans-serif;margin:0 0 2mm}
+p{margin:0 0 2.5mm}
+.page{page-break-after:always;break-after:page}
+.page:last-child{page-break-after:auto}
+.muted{color:var(--ink-2)}
+.cover{display:flex;flex-direction:column;justify-content:space-between;min-height:250mm}
+.cover .big{font:700 64pt/.9 'Barlow Condensed',sans-serif;letter-spacing:-.02em;margin:30mm 0 8mm}
+.cover .sub{font-size:14pt;max-width:120mm}
+.cover .meta{font-size:9.5pt;color:var(--ink-2)}
+.chip{display:inline-block;font-size:8.5pt;padding:1px 7px;border-radius:99px;background:var(--ink);color:#fff;margin-right:4px;vertical-align:middle}
+.chip.red{background:var(--red)}
+.chip.gray{background:var(--ink-2)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:6mm;align-items:start}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5mm;align-items:start}
+figure{margin:0}
+figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px;display:block}
+figcaption{font-size:8.5pt;color:var(--ink-2);margin-top:1.5mm}
+.phone{width:58mm;margin:0 auto}
+.phone img{border-radius:6px}
+ul{margin:0 0 3mm;padding-left:5mm}
+li{margin-bottom:1.2mm}
+.keep h3{color:var(--green)}.block h3{color:var(--red)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin:4mm 0 6mm}
+.facts div{background:var(--panel);border-radius:3px;padding:3mm;font-size:8.5pt}
+.facts b{display:block;font:600 18pt/1 'Barlow Condensed',sans-serif;margin-bottom:1mm}
+.idea{background:var(--panel);border-radius:3px;padding:4mm;margin:0 0 5mm;font-size:10pt}
+.tall{max-height:230mm;overflow:hidden;border:1px solid var(--line);border-radius:3px}
+.tall img{width:100%;border:0;border-radius:0}
+.reco{background:var(--ink);color:#fff;border-radius:4px;padding:6mm;margin-top:6mm}
+.reco h2{color:#fff;border-color:#444}
+.reco ol{margin:0;padding-left:5mm}
+.reco li{margin-bottom:2mm}
+table{width:100%;border-collapse:collapse;font-size:9.5pt}
+td,th{text-align:left;padding:2mm 2mm;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600}
+.src{font-size:8.5pt;color:var(--ink-2);margin-top:4mm}
+</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div>
+    <p class="meta">4barber · rozwój obecnego sklepu · 27.09.2026</p>
+    <p class="big">Karta produktu:<br>jak jest i trzy propozycje</p>
+    <p class="sub">Przegląd żywego 4barber.pl (telefon 390×844 i desktop 1440) oraz propozycje nowej karty na przykładzie bestsellera Maszynka WMARK NG-139 Czarna. Wszystkie liczby ze sklepu z datą odczytu.</p>
+  </div>
+  <div class="meta">
+    <p>Strony na żywo: https://szczepkowski-cpu.github.io/4barber-rozwoj/ · źródło faktów: dane/ng139-2026-09-27.md · żywy sklep oglądany read-only</p>
+    <p>Propozycje: v1 „Porządek” (biała), v4 „Porządek” z technikaliami w szpalcie (biała), v3 „Karta techniczna” (czarna, rekomendacja). v2 wycofana z galerii (decyzja: jedna czarna).</p>
+  </div>
+</section>
+
+<section class="page">
+  <h1>Jak jest dziś (27.09.2026, ok. 20:45)</h1>
+  <div class="facts">
+    <div><b>≈1 900 px</b>od góry karty do „Dodaj do koszyka” na telefonie (ponad 2 ekrany)</div>
+    <div><b>3 warstwy</b>przy wejściu: pasek gratisów, modal cookies, popup „Zgarnij tajną zniżkę”</div>
+    <div><b>brak</b>przyklejonego „Dodaj do koszyka” na telefonie</div>
+    <div><b>6 300 px</b>długość karty produktu na telefonie; strona główna 8 360 px</div>
+  </div>
+  <div class="row3">
+    <figure><img src="zrzuty/audyt-2026-09-27/m-home-fold.jpg" alt=""><figcaption>Strona główna, telefon: popup zniżki na modalu cookies, hero niewidoczne.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-fold-clean.jpg" alt=""><figcaption>Karta NG-139, telefon, pierwszy ekran: zdjęcie i licznik. Bez ceny, nazwy i przycisku.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-after-atc.jpg" alt=""><figcaption>Po dodaniu do koszyka: pasek darmowej dostawy, „Skompletuj zestaw”. Najlepszy ekran sklepu.</figcaption></figure>
+  </div>
+  <div class="row" style="margin-top:5mm">
+    <figure><img src="zrzuty/audyt-2026-09-27/d-pdp-ng139-fold.jpg" alt=""><figcaption>Karta NG-139, desktop 1440×900: cena widoczna, „Dodaj do koszyka” pod krawędzią ekranu.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/d-cart-fold.jpg" alt=""><figcaption>Koszyk, desktop: checkout jednostronicowy, InPost 9,99 zł, „Zamawiam i płacę” od razu widoczne.</figcaption></figure>
+  </div>
+</section>
+
+<section class="page">
+  <h2>Diagnoza: co zostaje, co blokuje sprzedaż</h2>
+  <div class="row">
+    <div class="keep"><h3>Zostaje</h3><ul>
+      <li>Treść karty: parametry, „Co wyróżnia”, „Dla kogo”, FAQ, ostrzeżenie o ładowarce, wideo. To fakty, nie marketing.</li>
+      <li>Ocena 5.00 z 13 ocen, licznik „paczka jutro”, „Wysyłka w 24 h”, cztery ikony zaufania (Doradztwo barbera, Serwis w Polsce, Oryginalny sprzęt, Sprawdzone przez barberów).</li>
+      <li>Pasek USP na stronie głównej: oficjalny dystrybutor WMARK, serwis door2door, dostawa 24 h i darmowa od 250 zł.</li>
+      <li>Modal „Dodano do koszyka” i checkout jednostronicowy z InPost, BLIK, Apple/Google Pay, ratami i PayPo.</li>
+      <li>Opinie barberów z nazwiskiem i Instagramem (dziś tylko na stronie głównej).</li>
+    </ul></div>
+    <div class="block"><h3>Blokuje sprzedaż</h3><ul>
+      <li>Cena i „Dodaj do koszyka” poza pierwszym ekranem na telefonie i desktopie. Na telefonie przycisk po ≈1 900 px, bez wersji przyklejonej.</li>
+      <li>Kolejność odwrotna do decyzji: 7 wierszy parametrów przed ceną; czerwony „Przejdź do pełnego opisu” konkuruje z pomarańczowym „Dodaj”.</li>
+      <li>Warianty kolorów jako 4 wielkie kafle (~700 px) między ceną a przyciskiem.</li>
+      <li>Trzy liczby, które sprzedają maszynkę (8000–8500 obr./min, 8 nasadek 3–25 mm, ceramika), ukryte w opisie pod wideo.</li>
+      <li>Trzy warstwy przy wejściu; na stronie głównej ~1 000 px tekstu o sklepie przed pierwszą kategorią.</li>
+      <li>Wideo bez miniatury (czarny prostokąt do czasu załadowania YouTube). W koszyku brak paska darmowej dostawy, za to 5 szarych kafli gratisów od 599 zł.</li>
+    </ul></div>
+  </div>
+  <p class="src">Wniosek: treść karty jest dobra. Problem to kolejność i odległość do przycisku. Dlatego propozycje zaczynają od karty produktu.</p>
+</section>
+
+<section class="page">
+  <h1><span class="chip">v1</span><span class="chip gray">biała · ostrożna ewolucja</span><br>„Porządek”: ten sam sklep, nowa kolejność</h1>
+  <p class="idea">Wygląd obecnego 4barber.pl 1:1 (Inter, biel, pomarańczowy przycisk, czerwone akcenty). Zmienia się tylko kolejność: nazwa, ocena, cena, „Wysyłka w 24 h”, kolory jako małe próbki i „Dodaj do koszyka” mieszczą się w pierwszym ekranie telefonu. Po przewinięciu przycisk zostaje w przyklejonym pasku. Parametry jako tabela pod spodem, opinie barberów na karcie, wideo z miniaturą.</p>
+  <div class="row">
+    <figure class="phone"><img src="zrzuty/pdp-v1/m-fold.png" alt=""><figcaption>Telefon 390×844, pierwszy ekran. Przycisk kończy się na 728 px.</figcaption></figure>
+    <figure><img src="zrzuty/pdp-v1/d-fold.png" alt=""><figcaption>Desktop 1440×900: galeria po lewej, przyklejony panel zakupu po prawej.</figcaption></figure>
+  </div>
+  <p class="src">Na żywo: https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v1.html</p>
+</section>
+<section class="page">
+  <h2>v1 · cała strona na telefonie</h2>
+  <div class="row3">
+    <figure><img src="zrzuty/pdp-v1/m-full-p1.png" alt=""></figure>
+    <figure><img src="zrzuty/pdp-v1/m-full-p2.png" alt=""></figure>
+    <figure><img src="zrzuty/pdp-v1/m-full-p3.png" alt=""></figure>
+  </div>
+</section>
+
+<section class="page">
+  <h1><span class="chip">v4</span><span class="chip gray">biała · technikalia w szpalcie</span><br>„Porządek” z parametrami pod oceną, jak dziś</h1>
+  <p class="idea">To v1 z jedną różnicą na życzenie Szymona: lista parametrów z ptaszkami wraca do prawej szpalty pod oceną, tak jak na obecnym sklepie. Na desktopie klient widzi technikalia obok zdjęcia, zanim zobaczy cenę. Na telefonie lista schodzi pod ikony zaufania, żeby cena i „Dodaj do koszyka” zostały w pierwszym ekranie. Osobna tabela parametrów niżej znika (byłaby dublem).</p>
+  <div class="row">
+    <figure class="phone"><img src="zrzuty/pdp-v4/m-fold.png" alt=""><figcaption>Telefon 390×844, pierwszy ekran: bez zmian względem v1.</figcaption></figure>
+    <figure><img src="zrzuty/pdp-v4/d-fold.png" alt=""><figcaption>Desktop 1440×900: technikalia w prawej szpalcie między oceną a ceną.</figcaption></figure>
+  </div>
+  <p class="src">Na żywo: https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v4.html</p>
+</section>
+<section class="page">
+  <h2>v4 · cała strona na telefonie</h2>
+  <div class="row3">
+    <figure><img src="zrzuty/pdp-v4/m-full-p1.png" alt=""></figure>
+    <figure><img src="zrzuty/pdp-v4/m-full-p2.png" alt=""></figure>
+    <figure><img src="zrzuty/pdp-v4/m-full-p3.png" alt=""></figure>
+  </div>
+</section>
+
+<section class="page">
+  <h1><span class="chip">v3</span><span class="chip red">czarna · rekomendacja</span><br>„Karta techniczna”: maszyna w liczbach</h1>
+  <p class="idea">Karta produktu jako arkusz techniczny maszyny. Numer modelu w skali arkusza, wycinanka produktu, cztery zmierzone liczby (8000–8500 obr./min, 0,5–2 mm samym ostrzem, 8 nasadek 3–25 mm, wysyłka 24 h). Pod spodem linijka nasadek do dotknięcia, skala obrotów, ostrza, lista części, ostrzeżenie o ładowaniu, wideo, barberzy z nazwiskiem, opinie, FAQ, „Skompletuj stanowisko”. Cena i „Dodaj do koszyka” w pasku przyklejonym do dołu od pierwszej sekundy. Krój Barlow Condensed to ten sam, którego sklep używa dziś w hero, czerwień 4barber jako jedyny akcent.</p>
+  <div class="row">
+    <figure class="phone"><img src="zrzuty/pdp-v3/m-fold.png" alt=""><figcaption>Telefon 390×844, pierwszy ekran: cztery liczby widoczne, pasek cena + przycisk na dole.</figcaption></figure>
+    <figure><img src="zrzuty/pdp-v3/d-fold.png" alt=""><figcaption>Desktop 1440×900: arkusz w dwu kolumnach, przyklejony panel zakupu po prawej.</figcaption></figure>
+  </div>
+  <p class="src">Na żywo: https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v3.html</p>
+</section>
+<section class="page">
+  <h2>v3 · cała strona na telefonie i linijka nasadek</h2>
+  <div class="row3">
+    <figure><img src="zrzuty/pdp-v3/m-full-p1.png" alt=""></figure>
+    <figure><img src="zrzuty/pdp-v3/m-full-p2.png" alt=""></figure>
+    <figure><img src="zrzuty/pdp-v3/m-ruler.png" alt=""><figcaption>Linijka nasadek: dotknięcie stopnia (3…25 mm albo „samym ostrzem 0,5–2 mm”) przesuwa wskaźnik.</figcaption></figure>
+  </div>
+</section>
+
+<section class="page">
+  <h2>Porównanie i rekomendacja</h2>
+  <table>
+    <tr><th></th><th>v1 „Porządek”</th><th>v4 „Porządek” + technikalia</th><th>v3 „Karta techniczna”</th></tr>
+    <tr><th>Wygląd</th><td>obecny sklep 1:1</td><td>obecny sklep 1:1</td><td>czarny arkusz, Barlow Condensed, czerwień 4barber</td></tr>
+    <tr><th>Cena + CTA w 1. ekranie telefonu</th><td>tak (CTA do 728 px)</td><td>tak (jak v1)</td><td>tak (pasek stały na dole)</td></tr>
+    <tr><th>Technikalia</th><td>tabela pod pierwszym ekranem</td><td>lista z ptaszkami w prawej szpalcie (desktop), pod ikonami zaufania (telefon)</td><td>4 liczby w pasie + rysowane skale i lista części</td></tr>
+    <tr><th>Dowód barberów</th><td>3 cytaty ze zdjęciem</td><td>3 cytaty ze zdjęciem</td><td>4 cytaty ze zdjęciem</td></tr>
+    <tr><th>Ryzyko</th><td>najmniejsze; najmniej odróżnia</td><td>jak v1; dłuższa kolumna na desktopie</td><td>największa zmiana; wymaga przeniesienia na szablon Shoper</td></tr>
+    <tr><th>Detektor Impeccable</th><td>4 uwagi (cechy obecnego sklepu)</td><td>jak v1</td><td>0 uwag</td></tr>
+  </table>
+  <div class="reco">
+    <h2>Rekomendacja: v3 jako kierunek, v1/v4 jako bezpieczny krok pomiarowy</h2>
+    <ol>
+      <li>v3 jako jedyna zmienia to, czym karta przekonuje: liczbami i rysunkiem zamiast przymiotników. Pasuje do tonu sklepu „bez wciskania” i odróżnia 4barber od marketplace’ów, gdzie ten sam WMARK leży obok.</li>
+      <li>v1 albo v4 to minimalny ruch, jeśli najpierw chcemy zmierzyć samą kolejność i przyklejony przycisk (A/B na obecnym szablonie).</li>
+      <li>Po wyborze: stany „brak na stanie” i „po dodaniu do koszyka”, potem strona główna (warstwy przy wejściu), kategoria (filtry), koszyk (pasek darmowej dostawy zamiast kafli gratisów).</li>
+    </ol>
+  </div>
+</section>
+</body>
+</html>
