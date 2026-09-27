@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Maszynka WMARK NG-139 Czarna · makieta v6 (szpalta ogarnięta, mniej tekstu) · 4barber</title>
+<meta name="description" content="Makieta v6 karty produktu 4barber.pl: szpalta zakupu jako jedna spokojna karta, technikalia liczbami i linijką, opis skrócony do intro i trzech kroków. Dane z żywego sklepu, odczyt 27.09.2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/ng139/czarna-01.webp" fetchpriority="high">
+<style>
+/* Tokeny = paleta zastana z CSS 4barber.pl (odczyt 27.09.2026). Nowych kolorów nie dodajemy. */
+:root{
+  --ink:#121212; --ink-2:#454545; --bg:#fff; --beige:#F4F2EE; --chip:#E2E5E9; --line:#C5CBD3; --band:#F0F2F4;
+  --orange:#F57905;
+  --red:#C61D2E; --green:#2E9B4E; --blue:#0745C0;
+  --shadow:0 4px 6px -4px rgba(17,19,22,.08),0 12px 16px -4px rgba(17,19,22,.08);
+  --shadow-up:0 -4px 6px -1px rgba(17,19,22,.08),0 -2px 4px -2px rgba(17,19,22,.08);
+  --r:10px; --r-card:14px;
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:"Oswald","Arial Narrow",Arial,sans-serif;
+  --pad:16px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;font-family:var(--font);font-size:16px;line-height:1.5;color:var(--ink);background:var(--bg);font-feature-settings:"cv11"}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+::selection{background:var(--orange);color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.num{font-variant-numeric:tabular-nums}
+.ico{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+h2.sec{font-family:var(--display);font-weight:600;font-size:1.5rem;line-height:1.2;margin:48px 0 12px;letter-spacing:.005em}
+h3.sub{font-family:var(--display);font-weight:600;font-size:1.25rem;line-height:1.25;margin:32px 0 8px}
+p{margin:0 0 12px;max-width:68ch}
+
+/* Przyciski: CTA pomarańczowy jak na sklepie + szary przycisk drugiego rzędu */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border:0;border-radius:var(--r);font-weight:600;text-decoration:none;cursor:pointer;transition:background-color .15s,box-shadow .15s}
+.btn-cta{background:var(--orange);color:#fff;font-weight:700;font-size:1.125rem;height:54px;padding:0 20px}
+.btn-cta:hover{box-shadow:var(--shadow)}
+.btn-line{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);font-weight:600}
+.btn-line:hover{background:var(--band)}
+.btn-line[aria-pressed="true"]{background:var(--chip);box-shadow:none}
+.btn-2{background:var(--chip);color:var(--ink)}
+.btn-2:hover{box-shadow:inset 0 0 0 1px var(--line)}
+.btn-sm{min-height:44px;font-size:.9375rem;padding:0 14px}
+
+/* ===== Pasek promocji ===== */
+.promo{background:var(--ink);color:#fff;height:36px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:0;text-transform:uppercase;padding:0 6px;white-space:nowrap;overflow:hidden}
+.promo b{color:#fff;background:var(--red);padding:1px 4px;border-radius:4px;margin-left:4px;text-transform:none}
+
+/* ===== Nagłówek ===== */
+.hdr{border-bottom:1px solid var(--chip);background:#fff}
+.hdr-row{display:flex;align-items:center;height:56px;gap:4px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:none;border-radius:var(--r);cursor:pointer;position:relative;text-decoration:none}
+.icon-btn:hover{background:var(--band)}
+.logo{display:flex;align-items:center;height:44px;margin-right:auto;padding:0 4px}
+.logo img{width:108px;height:15px}
+.badge{position:absolute;top:4px;right:2px;min-width:18px;height:18px;border-radius:9px;background:var(--red);color:#fff;font-size:.6875rem;font-weight:700;line-height:18px;text-align:center;padding:0 4px}
+.hdr-search,.hdr-nav,.hdr-acc-label,.only-d{display:none}
+
+/* ===== Okruszki ===== */
+.crumbs{height:44px;display:flex;align-items:center;font-size:.8125rem;overflow:hidden}
+.crumbs ol{list-style:none;display:flex;align-items:center;margin:0;padding:0;min-width:0;white-space:nowrap}
+.crumbs li{display:flex;align-items:center;flex:none}
+.crumbs li:last-child{flex:1 1 auto;min-width:0;overflow:hidden}
+.crumbs li:last-child span{overflow:hidden;text-overflow:ellipsis;color:var(--ink-2)}
+.crumbs a{color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.crumbs a:hover{text-decoration:underline}
+.crumbs .ico{width:14px;height:14px;margin:0 4px;color:var(--ink-2)}
+
+/* ===== Układ karty: mobile jedna kolumna; desktop galeria+treść lewo, buy-box prawo sticky ===== */
+.pdp{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"gal" "buy" "content"}
+.gal{grid-area:gal;min-width:0}
+.buy{grid-area:buy;min-width:0}
+.content{grid-area:content;min-width:0}
+
+/* ===== Galeria ===== */
+.gal-main{position:relative}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;height:300px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;display:flex;justify-content:center;align-items:center}
+.slide img{width:300px;height:300px;object-fit:contain}
+.gal-brand{position:absolute;top:4px;left:0;width:64px;height:auto;pointer-events:none;filter:brightness(1.04)}
+.gal-count{position:absolute;top:8px;right:0;background:var(--chip);border-radius:6px;font-size:.8125rem;font-weight:600;padding:2px 8px}
+.dots{display:flex;justify-content:center;gap:6px;height:16px;align-items:center}
+.dots span{width:6px;height:6px;border-radius:50%;background:var(--line);transition:width .2s,background-color .2s}
+.dots span.on{width:18px;border-radius:3px;background:var(--ink)}
+.thumbs{display:none}
+.gal-arrow{display:none}
+
+/* ===== Buy-box ===== */
+.buy h1{font-size:1.3125rem;line-height:1.3;font-weight:700;margin:12px 0 0;letter-spacing:-.005em}
+.rating{display:inline-flex;align-items:center;gap:8px;margin:-4px 0 -8px;min-height:44px;font-size:.875rem;text-decoration:none;color:var(--ink)}
+.rating:hover .rating-meta{text-decoration:underline}
+.stars{display:inline-flex;gap:1px;color:var(--orange)}
+.stars svg{width:16px;height:16px;fill:currentColor}
+.rating b{font-weight:700}
+.rating-meta{color:var(--ink-2)}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;flex-wrap:wrap}
+.price{font-size:2rem;line-height:1.15;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ship{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-weight:700;font-size:1.1875rem;white-space:nowrap}
+.variants{margin-top:12px}
+.variants-label{font-size:.875rem;color:var(--ink-2);margin-bottom:6px}
+.variants-label b{color:var(--ink);font-weight:600}
+.swatches{display:flex;gap:10px}
+.swatch{width:54px;height:54px;padding:2px;border:1px solid var(--line);border-radius:var(--r);background:#fff;cursor:pointer}
+.swatch img{width:48px;height:48px;object-fit:contain;border-radius:7px}
+.swatch[aria-pressed="true"]{border:2px solid var(--orange);padding:1px}
+.swatch:hover{border-color:var(--ink-2)}
+.cta-row{display:flex;gap:10px;margin-top:14px}
+.cta-row .btn-cta{flex:1}
+.fav{width:54px;height:54px;flex:none;border:1px solid var(--line);border-radius:var(--r);background:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.fav:hover{border-color:var(--ink-2)}
+.fav[aria-pressed="true"] .ico{fill:var(--red);stroke:var(--red)}
+.trust{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.trust li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;font-size:.75rem;line-height:1.25;font-weight:500}
+.trust .ico{color:var(--red)}
+
+/* Licznik wysyłki (mechanizm sklepu, odlicza do 16:00) */
+.cutoff{margin-top:20px;background:var(--beige);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cutoff .ico{color:var(--green)}
+.cutoff-txt{flex:1 1 150px;font-size:.9375rem;line-height:1.35}
+.cutoff-txt b{display:block;font-weight:600}
+.timer{display:flex;align-items:center;gap:4px;font-variant-numeric:tabular-nums}
+.timer span{display:flex;flex-direction:column;align-items:center;background:var(--chip);border-radius:6px;min-width:44px;padding:3px 4px;font-weight:700;font-size:1.125rem;line-height:1.2}
+.timer small{font-size:.6875rem;font-weight:500;color:var(--ink-2)}
+.timer i{font-style:normal;font-weight:700}
+
+
+/* v5: porządek w szpalcie — jedna karta zakupu, kolor w linii z próbkami, zaufanie jednym rzędem, licznik smukły */
+.variants{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.variants-label{margin:0;flex:none}
+.trust li{font-size:.6875rem}
+.cutoff-txt{font-size:.8125rem}
+.cutoff-txt b{display:inline;font-weight:600}
+.cutoff-txt b::after{content:" · "}
+.timer span{background:none;min-width:auto;padding:0 2px;font-size:1rem;flex-direction:row;gap:2px}
+.timer small{font-size:.75rem}
+
+/* v5: technikalia pod spodem — cztery liczby, linijka nasadek do dotknięcia, zestaw na zdjęciach, materiał i zasilanie */
+.spec-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.spec-tiles li{background:var(--beige);border-radius:var(--r-card);padding:16px 16px 14px;display:grid;gap:4px}
+.spec-tiles .n{font-family:var(--display);font-weight:600;font-size:2rem;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.spec-tiles .n small{display:block;font-size:.9375rem;color:var(--ink-2);font-weight:500;margin:4px 0 0}
+.spec-tiles .l{font-size:.8125rem;color:var(--ink-2)}
+.spec-tiles .ico{color:var(--red);width:20px;height:20px}
+.ruler-card{margin-top:14px;border:1px solid var(--chip);border-radius:var(--r-card);padding:16px}
+.ruler-card .readout{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.ruler-card .readout .n{font-family:var(--display);font-weight:600;font-size:2.25rem;line-height:1}
+.ruler-card .readout .n small{font-size:1rem;color:var(--ink-2);margin-left:4px}
+.ruler-card .readout p{margin:0;font-size:.8125rem;color:var(--ink-2);text-align:right;max-width:20ch}
+.ruler-card svg{width:100%;height:auto;display:block}
+.stops{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:10px}
+.stops button{height:44px;border:1px solid var(--line);border-radius:var(--r);background:#fff;font:600 .9375rem var(--font);color:var(--ink);cursor:pointer}
+.stops button[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.stops button:hover{border-color:var(--ink-2)}
+.stops .blade{grid-column:1/-1;font-weight:500;font-size:.875rem}
+.kit-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kit-grid li{border:1px solid var(--chip);border-radius:var(--r-card);padding:12px 10px 10px;display:grid;justify-items:center;gap:6px;text-align:center;font-size:.8125rem;line-height:1.3}
+.kit-grid .ph{height:84px;display:flex;align-items:center;justify-content:center}
+.kit-grid .ph img{max-height:84px;width:auto;object-fit:contain}
+.kit-grid .ph svg{width:56px;height:56px;stroke:var(--ink);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.kit-grid .q{position:absolute}
+.kit-grid li{position:relative}
+.kit-grid .cnt{position:absolute;top:8px;left:8px;background:var(--ink);color:#fff;font-size:.75rem;font-weight:700;border-radius:999px;padding:2px 7px;font-variant-numeric:tabular-nums}
+.mat{display:grid;gap:10px;margin-top:14px}
+.mat article{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;border:1px solid var(--chip);border-radius:var(--r-card);padding:14px}
+.mat .ph{height:96px;display:flex;align-items:center;justify-content:center;background:var(--band);border-radius:var(--r)}
+.mat .ph img{max-height:88px;width:auto;object-fit:contain}
+.mat h3{margin:0 0 4px;font-family:var(--display);font-weight:600;font-size:1.125rem;line-height:1.2}
+.mat p{margin:0;font-size:.9375rem;color:var(--ink-2)}
+.mat p b{color:var(--ink);font-weight:600}
+.fullspec{margin-top:14px}
+.fullspec summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center;gap:8px;list-style:none}
+.fullspec summary::-webkit-details-marker{display:none}
+.fullspec summary .ico{transition:transform .2s}
+.fullspec[open] summary .ico{transform:rotate(180deg)}
+.tech-lead{margin:0 0 14px;color:var(--ink-2);max-width:62ch}
+@media (min-width:1024px){
+  .spec-tiles{grid-template-columns:repeat(4,1fr);gap:12px}
+  .spec-tiles .n{font-size:2.25rem}
+  .cutoff-txt{white-space:nowrap}
+  .cutoff{flex-wrap:nowrap;justify-content:space-between}
+  .kit-grid{grid-template-columns:repeat(6,1fr)}
+  .mat{grid-template-columns:1fr 1fr}
+  .trust{grid-template-columns:repeat(4,1fr)}
+  .trust li{flex-direction:column;text-align:center;font-size:.75rem;gap:6px}
+}
+
+/* v6: prawa szpalta ogarnięta — jedna karta, jedna lewa krawędź, rytm 16 px; zaufanie i licznik jako spokojne linie, nie ramki */
+.buy h1{font-size:1.25rem;margin-top:8px}
+.price{font-size:2rem}
+.ship{background:#E9F6EC;color:#1E7B3A;border-radius:999px;padding:6px 12px;font-size:.9375rem;font-weight:600}
+.ship .ico{width:18px;height:18px}
+.variants{margin-top:14px;gap:10px}
+.swatch{width:48px;height:48px}
+.swatch img{width:42px;height:42px}
+.trust{margin-top:16px;border:0;padding:0;grid-template-columns:1fr 1fr;gap:8px 12px}
+.trust li{flex-direction:row;align-items:center;text-align:left;gap:8px;font-size:.8125rem;font-weight:500;color:var(--ink-2)}
+.trust .ico{width:18px;height:18px;flex:none}
+.cutoff{margin-top:14px;padding:0;border:0;background:none;gap:8px;flex-wrap:nowrap;justify-content:flex-start;color:var(--ink-2)}
+.cutoff .ico{width:18px;height:18px;flex:none}
+.cutoff-txt{font-size:.8125rem;flex:0 1 auto;white-space:normal}
+.cutoff-txt b{color:var(--ink)}
+.timer{gap:2px}
+.timer span{font-size:.875rem;color:var(--ink)}
+.timer small{font-size:.75rem}
+/* v6: mniej ściany tekstu — „Dla kogo” jako dwie krótkie karty, „Jak dbać” jako trzy kroki z ikonami */
+.who{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.who li{background:var(--beige);border-radius:var(--r-card);padding:16px}
+.who h3{margin:0 0 6px;font-family:var(--display);font-weight:600;font-size:1.125rem;line-height:1.2}
+.who p{margin:0;font-size:.9375rem;color:var(--ink-2)}
+.who p b{color:var(--ink);font-weight:600}
+.intro{max-width:62ch;font-size:1.0625rem;line-height:1.55}
+.steps{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px;counter-reset:step}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;border:1px solid var(--chip);border-radius:var(--r-card);padding:14px}
+.steps li::before{counter-increment:step;content:counter(step);width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font:600 1.125rem/44px var(--display);text-align:center}
+.steps h3{margin:0 0 2px;font-size:1rem;font-weight:600;font-family:var(--font)}
+.steps p{margin:0;font-size:.9375rem;color:var(--ink-2)}
+@media (min-width:1024px){
+  .buy{border:1px solid var(--chip);border-radius:var(--r-card);padding:22px 24px 24px;top:24px}
+  .buy h1{font-size:1.75rem;line-height:1.2;margin-top:0}
+  .rating{margin:2px 0 -6px}
+  .price-row{margin-top:14px}
+  .price{font-size:2.25rem}
+  .trust{grid-template-columns:1fr 1fr}
+  .who{grid-template-columns:1fr}
+  .mat{grid-template-columns:1fr}
+  .mat article{grid-template-columns:120px 1fr}
+  .mat .ph{height:110px}
+  .cutoff-txt{white-space:nowrap}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .steps li{grid-template-columns:1fr;gap:10px}
+  .duo{grid-template-columns:minmax(0,1fr) 260px}
+}
+/* ===== Parametry (tabela) ===== */
+.params{width:100%;border-collapse:collapse;font-size:.9375rem;max-width:720px}
+.params th,.params td{text-align:left;vertical-align:top;padding:10px 0;border-bottom:1px solid var(--chip)}
+.params th{font-weight:600;width:42%;padding-right:16px}
+.params tr:first-child th,.params tr:first-child td{border-top:1px solid var(--chip)}
+
+/* ===== Dla kogo (zakładki) ===== */
+.tabs{display:inline-flex;background:var(--chip);border-radius:var(--r);padding:4px;gap:4px;max-width:100%}
+.tab{min-height:44px;padding:0 14px;border:0;border-radius:7px;background:none;font-weight:600;font-size:.9375rem;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.panel{padding-top:16px}
+.panel ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:68ch}
+.panel li,.ticks li{display:flex;gap:10px}
+.panel li .ico,.ticks li .ico{color:var(--red);width:20px;height:20px;margin-top:2px}
+
+/* ===== Wideo ===== */
+.video{position:relative;width:min(100%,260px);aspect-ratio:9/16;border-radius:var(--r-card);overflow:hidden;background:var(--ink);box-shadow:var(--shadow)}
+.video img,.video iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.video button{position:absolute;inset:0;border:0;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.play{width:72px;height:72px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.play .ico{width:30px;height:30px;fill:#fff;stroke:#fff;margin-left:4px}
+.video-cap{font-size:.875rem;color:var(--ink-2);margin-top:8px}
+
+/* ===== Opis ===== */
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:68ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:8px 0 0;padding:0}
+.chips li{background:var(--chip);border-radius:6px;padding:6px 10px;font-weight:600;font-size:.9375rem;font-variant-numeric:tabular-nums}
+.warn{display:flex;gap:12px;margin-top:24px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r);background:var(--beige);max-width:68ch}
+.warn .ico{color:var(--red);margin-top:1px}
+.warn p{margin:0}
+
+/* ===== FAQ + Bezpieczeństwo (details) ===== */
+.acc{max-width:760px}
+.acc details{border-bottom:1px solid var(--chip)}
+.acc details:first-child{border-top:1px solid var(--chip)}
+.acc summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:12px 0;font-weight:600;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .ico{transition:transform .2s;width:20px;height:20px}
+.acc details[open] summary .ico{transform:rotate(180deg)}
+.acc .acc-body{padding:0 0 16px;color:var(--ink)}
+.acc .acc-body p:last-child{margin-bottom:0}
+.safety dl{margin:0;display:grid;gap:12px}
+.safety dt{font-weight:600;font-size:.875rem}
+.safety dd{margin:0;color:var(--ink-2)}
+
+/* ===== Opinie ===== */
+.rev-sum{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px}
+.rev-score{font-size:2.5rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.rev-sum .stars svg{width:20px;height:20px}
+.rev-sum .meta{font-size:.875rem;color:var(--ink-2)}
+.rev-list{list-style:none;margin:20px 0 0;padding:0;max-width:760px}
+.rev{padding:16px 0;border-top:1px solid var(--chip)}
+.rev-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rev-head b{font-weight:600}
+.rev time{font-size:.875rem;color:var(--ink-2)}
+.rev .stars{margin:4px 0 6px}
+.rev .stars svg{width:14px;height:14px}
+.rev blockquote{margin:0;max-width:68ch}
+
+/* Opinie barberów ze strony głównej — pas beżowy, karty z miękkim cieniem */
+.barbers{background:var(--beige);margin-top:48px;padding:8px 0 40px}
+.barbers h2.sec{margin-top:32px;margin-bottom:4px}
+.barbers-note{color:var(--ink-2);font-size:.9375rem;margin-bottom:20px}
+.quotes{display:grid;gap:14px;grid-template-columns:1fr;list-style:none;margin:0;padding:0}
+.quote{margin:0;height:100%;background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:12px}
+.quote blockquote{margin:0;font-size:.9375rem}
+.quote figcaption{display:flex;align-items:center;gap:12px;margin-top:auto}
+.quote figcaption img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:50% 25%}
+.quote figcaption b{display:block;font-weight:600;line-height:1.3}
+.quote figcaption span{font-size:.875rem;color:var(--ink-2)}
+
+/* ===== Skompletuj zestaw ===== */
+.xsell{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0;max-width:760px}
+.xitem{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow);padding:10px;display:flex;flex-direction:column;gap:6px;text-align:center}
+.xitem img{width:100%;aspect-ratio:1;object-fit:contain}
+.xitem .n{font-size:.8125rem;line-height:1.3;min-height:3.9em}
+.xitem .p{font-weight:700;font-variant-numeric:tabular-nums}
+.xitem .btn{width:100%}
+.freeship{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:.9375rem}
+.freeship .ico{color:var(--green)}
+
+/* ===== Stopka ===== */
+.foot{margin-top:56px;border-top:1px solid var(--chip);padding:32px 0 24px;font-size:.9375rem}
+.foot-grid{display:grid;gap:24px}
+.foot h2{font-size:.875rem;font-weight:700;margin:0 0 8px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.foot a{text-decoration:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.foot a:hover{text-decoration:underline}
+.foot .who{font-size:.8125rem;color:var(--ink-2);display:block;margin-top:6px}
+.foot .tel{font-weight:600;font-variant-numeric:tabular-nums}
+.foot .ico{width:20px;height:20px;color:var(--orange)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:28px;padding-top:16px;border-top:1px solid var(--chip);font-size:.8125rem;color:var(--ink-2)}
+.chip-ver{background:var(--chip);color:var(--ink);border-radius:6px;padding:4px 10px;font-weight:600;font-size:.75rem}
+
+/* ===== Sticky CTA na mobile ===== */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;box-shadow:var(--shadow-up);padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .2s ease-out;visibility:hidden}
+.sticky.show{transform:none;visibility:visible}
+.sticky-price{display:flex;flex-direction:column;line-height:1.2}
+.sticky-price b{font-size:1.25rem;font-variant-numeric:tabular-nums}
+.sticky-price span{font-size:.8125rem;color:var(--ink-2)}
+.sticky .btn-cta{flex:1}
+body.has-sticky{padding-bottom:80px}
+
+/* ===== Panel „Dodano do koszyka” ===== */
+dialog.added{border:0;padding:0;margin:auto auto 0;width:100%;max-width:100%;max-height:92vh;border-radius:16px 16px 0 0;box-shadow:var(--shadow);color:var(--ink)}
+dialog.added::backdrop{background:rgba(18,18,18,.55)}
+.added-in{padding:16px var(--pad) calc(16px + env(safe-area-inset-bottom));display:grid;gap:16px}
+.added-head{display:flex;align-items:center;justify-content:space-between}
+.added-head h2{margin:0;font-size:1.25rem;font-weight:700}
+.added-head .icon-btn{background:var(--chip);border-radius:50%}
+.added-prod{display:flex;gap:12px;align-items:center}
+.added-prod img{width:72px;height:72px;object-fit:contain}
+.added-prod b{display:block;font-weight:600;line-height:1.3}
+.added-prod .vat{font-size:.875rem;color:var(--ink-2)}
+.added-head h2:focus{outline:none}
+.added-prod .p{color:var(--ink);font-weight:700;font-size:1rem;font-variant-numeric:tabular-nums}
+.bar-txt{font-size:.9375rem;margin:0 0 6px}
+.bar{height:8px;border-radius:4px;background:var(--chip);overflow:hidden}
+.bar i{display:block;height:100%;width:92%;background:var(--red);border-radius:4px}
+.bar-scale{display:flex;justify-content:space-between;font-size:.75rem;color:var(--ink-2);margin-top:4px;font-variant-numeric:tabular-nums}
+.added h3{margin:0 0 8px;font-size:1rem;font-weight:700}
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0}
+.mini li{border:1px solid var(--chip);border-radius:var(--r);padding:8px;display:flex;flex-direction:column;gap:4px;text-align:center;font-size:.75rem;line-height:1.3}
+.mini img{width:56px;height:56px;margin:0 auto;object-fit:contain}
+.mini .p{font-weight:700;font-size:.875rem;font-variant-numeric:tabular-nums;margin-top:auto}
+.mini .btn{min-height:44px;width:100%;font-size:.8125rem;padding:0 6px}
+.added-actions{display:grid;gap:10px}
+.added-actions .btn-cta{font-size:1.0625rem}
+.added-actions .btn{width:100%}
+
+/* ===== Desktop 1440 ===== */
+@media (min-width:1024px){
+  :root{--pad:32px}
+  .promo{font-size:.875rem}
+  .hdr-row{height:88px;gap:24px}
+  .logo{margin-right:0}
+  .logo img{width:150px;height:21px}
+  .hdr-search{display:flex;flex:1;max-width:720px;height:44px;border:1px solid var(--line);border-radius:var(--r);align-items:center;padding:0 4px 0 16px;margin:0 auto}
+  .hdr-search input{flex:1;border:0;font:inherit;font-size:.9375rem;background:none;min-width:0;height:100%}
+  .hdr-search input:focus{outline:none}
+  .hdr-search:focus-within{outline:2px solid var(--ink);outline-offset:2px}
+  .hdr-search button{width:36px;height:36px;border:0;border-radius:7px;background:var(--orange);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+  .hdr-search button .ico{width:20px;height:20px}
+  .only-m{display:none}
+  .only-d{display:inline-flex}
+  .hdr-acc{display:flex;gap:4px}
+  .hdr-acc .icon-btn{width:auto;min-width:64px;height:56px;flex-direction:column;font-size:.75rem;gap:2px;padding:0 6px}
+  .hdr-acc-label{display:block;font-weight:500}
+  .hdr-acc .badge{right:8px;top:2px}
+  .hdr-nav{display:block}
+  .hdr-nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0 0 6px;flex-wrap:wrap}
+  .hdr-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font-weight:600;font-size:.9375rem;text-decoration:none;border-radius:var(--r)}
+  .hdr-nav a:hover{background:var(--band)}
+  .hdr-nav .hot{color:var(--red)}
+
+  .crumbs{height:48px}
+  .pdp{grid-template-columns:minmax(0,55fr) minmax(0,45fr);grid-template-areas:"gal buy" "content buy";column-gap:56px;margin-top:8px}
+  .buy{grid-row:1 / span 2;position:sticky;top:24px;align-self:start}
+
+  .gal{display:grid;grid-template-columns:80px minmax(0,1fr);gap:20px;align-items:start}
+  .thumbs{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+  .thumbs button{width:80px;height:80px;padding:4px;border:1px solid var(--chip);border-radius:var(--r);background:#fff;cursor:pointer}
+  .thumbs button img{width:70px;height:70px;object-fit:contain}
+  .thumbs button[aria-current="true"]{border:2px solid var(--ink);padding:3px}
+  .thumbs button:hover{border-color:var(--ink-2)}
+  .track{height:auto;aspect-ratio:1}
+  .slide img{width:100%;height:100%}
+  .gal-brand{width:88px;top:0}
+  .dots{display:none}
+  .gal-arrow{display:inline-flex;position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:var(--band);align-items:center;justify-content:center;cursor:pointer}
+  .gal-arrow:hover{background:var(--chip)}
+  .gal-arrow.prev{left:0}.gal-arrow.next{right:0}
+
+  .buy h1{font-size:2rem;line-height:1.2;margin-top:4px}
+  .rating{font-size:.9375rem;margin:0 0 -8px}
+  .price-row{margin-top:16px;justify-content:flex-start;column-gap:28px}
+  .price{font-size:2.25rem}
+  .variants{margin-top:20px}
+  .swatch{width:64px;height:64px}
+  .swatch img{width:58px;height:58px}
+  .cta-row{margin-top:20px}
+  .trust{margin-top:20px;grid-template-columns:repeat(2,1fr);gap:12px}
+  .trust li{flex-direction:row;text-align:left;gap:10px;font-size:.875rem}
+
+  .content h2.sec:first-child{margin-top:40px}
+  .duo{display:grid;grid-template-columns:minmax(0,1fr) 240px;column-gap:40px;align-items:start}
+  .quotes{grid-template-columns:repeat(3,1fr);gap:20px}
+  .quote{padding:24px}
+  .xsell{gap:16px}
+  .xitem{padding:16px}
+  .xitem .n{font-size:.9375rem}
+  .foot-grid{grid-template-columns:1.2fr 1fr 1fr}
+
+  .sticky{display:none}
+  body.has-sticky{padding-bottom:0}
+
+  dialog.added{margin:auto;max-width:520px;border-radius:16px}
+  .added-in{padding:24px}
+}
+@media (min-width:1024px) and (max-height:760px){.buy{position:static}}
+</style>
+</head>
+<body>
+
+<!-- Sprite ikon: jedna rodzina, kreska 1,75 px, siatka 24 px; używane przez <use href="#i-…"> w całej stronie -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 19.5s-7.5-4.4-7.5-10A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 7.5 2.5c0 5.6-7.5 10-7.5 10Z"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-chev-d" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4 3.5V16H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.2 5.2L4 17l3 3 5.5-5.5a4 4 0 0 0 5.2-5.2l-2.4 2.4-2.6-.6-.6-2.6 2.6-2.2Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6l7-2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6s4.9 1.6 5.5 4.6"/><path d="M15.5 5.8a3 3 0 0 1 0 5.4M17 14.6c1.8.5 3 2 3.5 4.4"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6.5h11v10H3zM14 10h3.5l3 3v3.5H14"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 21 19.5H3L12 4Z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5v14l12-7L7 5Z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.3a10 10 0 0 0 5.7 5.7L16 13l4 1.5v3a2 2 0 0 1-2.2 2A15.5 15.5 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-star-o" viewBox="0 0 24 24"><path d="m12 4 2.4 5 5.4.6-4 3.7 1.1 5.4L12 16l-4.9 2.7 1.1-5.4-4-3.7 5.4-.6L12 4Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 20 20"><path d="m10 1.6 2.5 5.3 5.8.7-4.3 4 1.1 5.7L10 14.5l-5.1 2.8L6 11.6l-4.3-4 5.8-.7L10 1.6Z"/></symbol>
+</svg>
+
+<!-- Pasek promocji — ten sam komunikat, który sklep pokazuje dziś na każdej stronie -->
+<div class="promo" role="note">Odbierz w koszyku 2 gratisy za zakupy powyżej <b class="num">599zł</b></div>
+
+<!-- Nagłówek: mobile = menu, logo, lupa, koszyk; desktop = logo, wyszukiwarka, konto/ulubione/koszyk + menu kategorii -->
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-row">
+      <button class="icon-btn only-m" type="button" aria-label="Menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+      <a class="logo" href="#" aria-label="4barber — strona główna"><img src="assets/brand/4barber-logo-a.svg" alt="4barber" width="150" height="21"></a>
+      <form class="hdr-search" role="search" onsubmit="return false">
+        <label class="sr-only" for="q">Szukaj</label>
+        <input id="q" type="search" placeholder="Szukaj">
+        <button type="submit" aria-label="Szukaj"><svg class="ico"><use href="#i-search"/></svg></button>
+      </form>
+      <button class="icon-btn only-m" type="button" aria-label="Szukaj"><svg class="ico"><use href="#i-search"/></svg></button>
+      <div class="hdr-acc">
+        <a class="icon-btn only-d" href="#"><svg class="ico" aria-hidden="true"><use href="#i-user"/></svg><span class="hdr-acc-label">Zaloguj się</span></a>
+        <a class="icon-btn only-d" href="#"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><span class="hdr-acc-label">Ulubione</span></a>
+        <a class="icon-btn" href="#" aria-label="Koszyk"><svg class="ico"><use href="#i-bag"/></svg><span class="hdr-acc-label">Koszyk</span><span class="badge num" id="cart-count">0</span></a>
+      </div>
+    </div>
+    <nav class="hdr-nav" aria-label="Kategorie">
+      <ul>
+        <li><a href="#">Maszynki</a></li><li><a href="#">Trymery</a></li><li><a href="#">Shavery</a></li><li><a href="#">Suszarki</a></li>
+        <li><a href="#">Nożyczki</a></li><li><a href="#">Kosmetyki</a></li><li><a href="#">Akcesoria</a></li><li><a href="#">Zestawy</a></li>
+        <li><a href="#" class="hot">Stwórz zestaw</a></li><li><a href="#">Części zamienne</a></li><li><a href="#">Zastosowanie</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- Okruszki: jedna linia, ostatni element skracany wielokropkiem na telefonie -->
+  <nav class="crumbs" aria-label="Okruszki">
+    <ol>
+      <li><a href="#">4barber</a><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></li>
+      <li><a href="#">Zastosowanie</a><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></li>
+      <li><a href="#">Maszynki</a><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></li>
+      <li><span aria-current="page">Maszynka WMARK NG-139 Czarna</span></li>
+    </ol>
+  </nav>
+
+  <div class="pdp">
+    <!-- Galeria: na telefonie przesuwana palcem (kropki + licznik), na desktopie miniatury w pionie + strzałki -->
+    <section class="gal" aria-label="Zdjęcia produktu">
+      <ul class="thumbs" id="thumbs">
+        <li><button type="button" aria-current="true" aria-label="Zdjęcie 1 z 8"><img src="assets/ng139/czarna-01.webp" alt="" width="70" height="70"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 2 z 8"><img src="assets/ng139/czarna-02.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 3 z 8"><img src="assets/ng139/czarna-03.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 4 z 8"><img src="assets/ng139/czarna-04.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 5 z 8"><img src="assets/ng139/czarna-05.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 6 z 8"><img src="assets/ng139/czarna-06.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 7 z 8"><img src="assets/ng139/czarna-07.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+        <li><button type="button" aria-label="Zdjęcie 8 z 8"><img src="assets/ng139/czarna-08.webp" alt="" width="70" height="70" loading="lazy"></button></li>
+      </ul>
+      <div>
+        <div class="gal-main">
+          <div class="track" id="track" tabindex="0" aria-label="Zdjęcia: przesuń w bok">
+            <div class="slide"><img id="main-img" src="assets/ng139/czarna-01.webp" alt="Maszynka WMARK NG-139 Czarna na stacji ładującej" width="750" height="750" fetchpriority="high"></div>
+            <div class="slide"><img src="assets/ng139/czarna-02.webp" alt="Zestaw: maszynka, 8 nasadek, stacja i akcesoria" width="750" height="750" loading="lazy"></div>
+            <div class="slide"><img src="assets/ng139/czarna-03.webp" alt="Maszynka WMARK NG-139 — detal" width="750" height="750" loading="lazy"></div>
+            <div class="slide"><img src="assets/ng139/czarna-04.webp" alt="Maszynka WMARK NG-139 — detal" width="750" height="750" loading="lazy"></div>
+            <div class="slide"><img src="assets/ng139/czarna-05.webp" alt="Maszynka WMARK NG-139 — detal" width="750" height="750" loading="lazy"></div>
+            <div class="slide"><img src="assets/ng139/czarna-06.webp" alt="Maszynka WMARK NG-139 — detal" width="750" height="750" loading="lazy"></div>
+            <div class="slide"><img src="assets/ng139/czarna-07.webp" alt="Maszynka WMARK NG-139 — detal" width="750" height="750" loading="lazy"></div>
+            <div class="slide"><img src="assets/ng139/czarna-08.webp" alt="Maszynka WMARK NG-139 — detal" width="750" height="750" loading="lazy"></div>
+          </div>
+          <img class="gal-brand" src="assets/brand/wmark.jpg" alt="WMARK" width="242" height="179">
+          <span class="gal-count num" aria-live="polite"><span id="gal-i">1</span>/8</span>
+          <button class="gal-arrow prev" type="button" aria-label="Poprzednie zdjęcie" data-dir="-1"><svg class="ico"><use href="#i-chev-l"/></svg></button>
+          <button class="gal-arrow next" type="button" aria-label="Następne zdjęcie" data-dir="1"><svg class="ico"><use href="#i-chev-r"/></svg></button>
+        </div>
+        <div class="dots" id="dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </section>
+
+    <!-- Buy-box: wszystko, czego trzeba do decyzji, w pierwszym ekranie telefonu; na desktopie przyklejony po prawej -->
+    <section class="buy" aria-labelledby="p-name">
+      <h1 id="p-name">Maszynka WMARK NG-139 <span id="p-color">Czarna</span></h1>
+      <a class="rating" href="#opinie">
+        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+        <b class="num">5.00</b><span class="rating-meta">13 ocen · 2 recenzje</span>
+      </a>
+      <div class="price-row">
+        <div class="price" aria-label="Cena 229,99 zł">229,99 zł</div>
+        <div class="ship"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg>Wysyłka w 24 h</div>
+      </div>
+      <div class="variants">
+        <div class="variants-label" id="v-label">Kolor: <b id="v-name">Czarna</b></div>
+        <div class="swatches" role="group" aria-labelledby="v-label">
+          <button class="swatch" type="button" aria-pressed="true" data-name="Czarna" data-img="assets/ng139/czarna-01.webp" aria-label="Czarna"><img src="assets/ng139/czarna-01.webp" alt="" width="48" height="48"></button>
+          <button class="swatch" type="button" aria-pressed="false" data-name="Żółta" data-img="assets/ng139/zolta.webp" aria-label="Żółta"><img src="assets/ng139/zolta.webp" alt="" width="48" height="48"></button>
+          <button class="swatch" type="button" aria-pressed="false" data-name="Pomarańczowa" data-img="assets/ng139/pomaranczowa.webp" aria-label="Pomarańczowa"><img src="assets/ng139/pomaranczowa.webp" alt="" width="48" height="48"></button>
+          <button class="swatch" type="button" aria-pressed="false" data-name="Różowa" data-img="assets/ng139/rozowa.webp" aria-label="Różowa"><img src="assets/ng139/rozowa.webp" alt="" width="48" height="48"></button>
+        </div>
+      </div>
+      <div class="cta-row">
+        <button class="btn btn-cta js-add" id="main-cta" type="button">Dodaj do koszyka</button>
+        <button class="fav" type="button" aria-pressed="false" aria-label="Dodaj do ulubionych"><svg class="ico"><use href="#i-heart"/></svg></button>
+      </div>
+      <ul class="trust">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Doradztwo barbera</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg>Serwis w Polsce</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Oryginalny sprzęt</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Sprawdzone przez barberów</li>
+      </ul>
+
+      <!-- Licznik godziny granicznej wysyłki — mechanizm, który sklep ma już dziś -->
+      <div class="cutoff">
+        <svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>
+        <div class="cutoff-txt"><b>Paczka zostanie jutro wysłana</b>zamów przez</div>
+        <div class="timer" role="timer" aria-label="Czas do godziny granicznej wysyłki">
+          <span><em class="num" id="t-h" style="font-style:normal">--</em><small>godz.</small></span><i aria-hidden="true">:</i>
+          <span><em class="num" id="t-m" style="font-style:normal">--</em><small>min.</small></span><i aria-hidden="true">:</i>
+          <span><em class="num" id="t-s" style="font-style:normal">--</em><small>sek.</small></span>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+      <!-- Technikalia: pod spodem, ale nie jako tabela — cztery liczby z karty, linijka nasadek do dotknięcia, zestaw na zdjęciach, materiał i zasilanie; pełna tabela w rozwijanym „Pełna specyfikacja” -->
+      <section aria-labelledby="h-tech">
+        <h2 class="sec" id="h-tech">Technikalia</h2>
+        <p class="tech-lead">Cztery liczby, które mówią o tej maszynce najwięcej, i to, co dostajesz w pudełku. Wszystko dosłownie z karty produktu.</p>
+        <ul class="spec-tiles">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span class="n">8000–8500<small>obr./min</small></span><span class="l">silnik: szybkie, równe cięcie bez szarpania, także przy gęstych włosach</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span class="n">8<small>nasadek</small></span><span class="l">od 3 do 25 mm, w komplecie</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span class="n">0,5–2<small>mm</small></span><span class="l">samym ostrzem: kontury, wykończenia, najkrótsze cięcie</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span class="n">1,8<small>m</small></span><span class="l">kabel do ładowania; praca bezprzewodowa, ładowanie kablem lub przez stację</span></li>
+        </ul>
+
+        <div class="ruler-card">
+          <div class="readout"><p class="n"><span id="stopVal">3</span><small>mm</small></p><p id="stopTxt">nasadka w zestawie</p></div>
+          <svg viewBox="0 0 360 96" role="img" aria-labelledby="rulerT"><title id="rulerT">Skala 0–26 mm z ośmioma nasadkami: 3, 6, 10, 13, 16, 19, 22, 25 mm i strefą samego ostrza 0,5–2 mm</title>
+            <g id="rulerBase" stroke="#C5CBD3" stroke-width="1"></g>
+            <rect id="bladeZone" x="16.5" y="42" width="19.5" height="12" fill="#121212" opacity=".12"/>
+            <line x1="10" y1="54" x2="350" y2="54" stroke="#121212" stroke-width="1.25"/>
+            <g id="rulerStops"></g>
+            <g id="rulerCursor"><polygon points="0,0 -7,-10 7,-10" fill="#F57905"/></g>
+            <g fill="#454545" font-family="Inter, sans-serif" font-size="10" text-anchor="middle"><text x="10" y="78">0</text><text x="75" y="78">5</text><text x="140" y="78">10</text><text x="205" y="78">15</text><text x="270" y="78">20</text><text x="335" y="78">25</text><text x="350" y="92" font-size="9" text-anchor="end">mm</text></g>
+          </svg>
+          <div class="stops" role="group" aria-label="Wybierz długość cięcia">
+            <button type="button" class="blade" data-mm="blade">Samym ostrzem 0,5–2 mm</button>
+            <button type="button" data-mm="3" aria-pressed="true">3</button><button type="button" data-mm="6">6</button><button type="button" data-mm="10">10</button><button type="button" data-mm="13">13</button><button type="button" data-mm="16">16</button><button type="button" data-mm="19">19</button><button type="button" data-mm="22">22</button><button type="button" data-mm="25">25</button>
+          </div>
+        </div>
+
+        <h3 class="sub">Co jest w pudełku</h3>
+        <ul class="kit-grid">
+          <li><span class="cnt">1×</span><div class="ph"><img src="assets/ng139/cut/czarna-04.png" alt="" width="42" height="84" loading="lazy"></div>Maszynka NG-139</li>
+          <li><span class="cnt">8×</span><div class="ph"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M8 40h40v8H8z"/><path d="M12 40V22M18 40V18M24 40V15M30 40V13M36 40V15M42 40V18M46 40V22"/><path d="M12 22c6-8 26-8 34 0"/></svg></div>Nasadki 3–25 mm</li>
+          <li><span class="cnt">1×</span><div class="ph"><img src="assets/ng139/cut/czarna-03.png" alt="" width="84" height="72" loading="lazy"></div>Stacja ładująca</li>
+          <li><span class="cnt">1×</span><div class="ph"><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="22" width="12" height="12" rx="2"/><path d="M18 28h6c8 0 8 12 16 12h4"/><rect x="44" y="34" width="6" height="12" rx="1"/><path d="M9 22v-4M15 22v-4"/></svg></div>Kabel 1,8 m</li>
+          <li><span class="cnt">1×</span><div class="ph"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M20 8h16l-2 22H22L20 8z"/><path d="M22 30h12v6c0 6-2 12-6 12s-6-6-6-12v-6z"/><path d="M25 38v6M28 38v8M31 38v6"/></svg></div>Pędzelek do czyszczenia</li>
+          <li><span class="cnt">1×</span><div class="ph"><svg viewBox="0 0 56 56" aria-hidden="true"><path d="M24 6h8v6h-8z"/><path d="M22 12h12l4 10v22a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4V22l4-10z"/><path d="M28 12V6"/><path d="M22 30h12"/></svg></div>Olejek do konserwacji</li>
+        </ul>
+
+        <div class="mat">
+          <article><div class="ph"><img src="assets/ng139/cut/czarna-06.png" alt="Ostrze maszynki pod kątem" width="88" height="86" loading="lazy"></div><div><h3>Ostrza: ceramika i stal nierdzewna</h3><p><b>Ostrość, trwałość i mniejsze nagrzewanie</b> podczas pracy. Po każdym strzyżeniu oczyść ostrza pędzelkiem i nanieś kroplę olejku.</p></div></article>
+          <article><div class="ph"><img src="assets/ng139/cut/czarna-05.png" alt="Spód maszynki ze stykami ładowania" width="84" height="88" loading="lazy"></div><div><h3>Zasilanie akumulatorowe</h3><p>Ładowanie kablem (1,8 m) lub przez stację. <b>Tylko ładowarka USB 5V 1A/2A</b>: szybkie ładowarki PD/QC (9V/12V/20V) mogą trwale uszkodzić urządzenie.</p></div></article>
+        </div>
+
+        <details class="fullspec">
+          <summary>Pełna specyfikacja z karty<svg class="ico" aria-hidden="true"><use href="#i-chev-d"/></svg></summary>
+          <table class="params">
+            <tbody>
+              <tr><th scope="row">Typ</th><td>Maszynka do strzyżenia włosów</td></tr>
+              <tr><th scope="row">Materiał ostrzy</th><td>Ceramika i stal nierdzewna</td></tr>
+              <tr><th scope="row">Zasilanie</th><td>Akumulatorowe</td></tr>
+              <tr><th scope="row">Regulacja długości strzyżenia</th><td class="num">3 mm, 6 mm, 10 mm, 13 mm, 16 mm, 19 mm, 22 mm, 25 mm</td></tr>
+              <tr><th scope="row">Długość kabla</th><td class="num">1,8 m</td></tr>
+              <tr><th scope="row">Kolor</th><td>Czarny</td></tr>
+              <tr><th scope="row">Zawartość zestawu</th><td>Maszynka, 8 nasadek, pędzelek do czyszczenia, kabel do ładowania, stacja ładująca, olejek do konserwacji</td></tr>
+            </tbody>
+          </table>
+        </details>
+      </section>
+
+      <div class="duo">
+      <!-- Dla kogo: dwie krótkie karty (sklep sam rozróżnia barber / prywatnie); zdania wyłącznie z opisu karty -->
+      <section aria-labelledby="h-who">
+        <h2 class="sec" id="h-who">Dla kogo</h2>
+        <ul class="who">
+          <li><h3>Przy fotelu</h3><p>Dla barberów i fryzjerów szukających niezawodnej maszynki na każdy dzień. <b>Nadaje się do fade</b>: szeroki zestaw nasadek i precyzyjne ostrza ułatwiają płynne przejścia.</p></li>
+          <li><h3>W domu</h3><p>Dla osób strzygących się w domu z profesjonalnym efektem. Samym ostrzem ok. 0,5–2 mm, z nasadkami od 3 do 25 mm; pędzelek i olejek w zestawie.</p></li>
+        </ul>
+      </section>
+
+      <!-- Wideo sklepu: lekka miniatura, iframe YouTube (nocookie) ładuje się dopiero po kliknięciu -->
+      <section aria-labelledby="h-video">
+        <h2 class="sec" id="h-video">Zobacz sprzęt w praktyce</h2>
+        <div class="video" id="video">
+          <img src="assets/ng139/video-thumb.jpg" alt="" width="480" height="360" loading="lazy">
+          <button type="button" aria-label="Odtwórz wideo: Zobacz sprzęt w praktyce"><span class="play"><svg class="ico"><use href="#i-play"/></svg></span></button>
+        </div>
+      </section>
+      </div>
+
+      <!-- Opis produktu: treść karty dosłownie, pocięta nagłówkami Oswald jak na sklepie -->
+      <section aria-labelledby="h-desc">
+        <h2 class="sec" id="h-desc">O maszynce</h2>
+        <p class="intro">Maszynka WMARK NG-139 to uniwersalne narzędzie do strzyżenia włosów – sprawdza się w salonie barberskim i fryzjerskim, jak i w domowej pielęgnacji. Mocny silnik i szeroki zestaw nasadek pozwalają wykonać klasyczne strzyżenie, fade i skracanie na różne długości.</p>
+        <h3 class="sub">Jak używać i dbać o maszynkę</h3>
+        <ol class="steps">
+          <li><div><h3>Dobierz nasadkę</h3><p>Do żądanej długości, a do najkrótszego cięcia, wykończeń i konturów pracuj samym ostrzem (ok. 0,5–2 mm).</p></div></li>
+          <li><div><h3>Oczyść po strzyżeniu</h3><p>Po każdym strzyżeniu oczyść ostrza pędzelkiem z zestawu.</p></div></li>
+          <li><div><h3>Kropla olejku</h3><p>Nanieś kroplę olejku – regularna pielęgnacja utrzymuje ostrość i wydłuża żywotność ostrzy.</p></div></li>
+        </ol>
+      </section>
+
+      <!-- FAQ: trzy pytania z karty jako akordeon, żeby nie wydłużać strony -->
+      <section aria-labelledby="h-faq">
+        <h2 class="sec" id="h-faq">Najczęstsze pytania</h2>
+        <div class="acc">
+          <details>
+            <summary>Czy nadaje się do fade?<svg class="ico" aria-hidden="true"><use href="#i-chev-d"/></svg></summary>
+            <div class="acc-body"><p>Tak – szeroki zestaw nasadek (3–25 mm) i precyzyjne ostrza ułatwiają płynne przejścia.</p></div>
+          </details>
+          <details>
+            <summary>Jaki zakres długości?<svg class="ico" aria-hidden="true"><use href="#i-chev-d"/></svg></summary>
+            <div class="acc-body"><p>Samym ostrzem ok. 0,5–2 mm, a z nasadkami od 3 do 25 mm.</p></div>
+          </details>
+          <details>
+            <summary>Czy mogę ładować szybką ładowarką?<svg class="ico" aria-hidden="true"><use href="#i-chev-d"/></svg></summary>
+            <div class="acc-body"><p>Nie. Używaj wyłącznie ładowarki USB 5V 1A/2A. Nie podłączaj szybkich ładowarek PD/QC (9V/12V/20V) – mogą trwale uszkodzić urządzenie.</p></div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Opinie o produkcie: ocena, liczby i obie recenzje dosłownie -->
+      <section id="opinie" aria-labelledby="h-rev">
+        <h2 class="sec" id="h-rev">Opinie</h2>
+        <div class="rev-sum">
+          <span class="rev-score">5.00</span>
+          <div>
+            <span class="stars" aria-label="5 na 5 gwiazdek"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+            <div class="meta">13 ocen · 2 recenzje</div>
+          </div>
+          <a class="btn btn-2" href="#"><svg class="ico" aria-hidden="true"><use href="#i-star-o"/></svg>Oceń i opisz</a>
+        </div>
+        <ul class="rev-list">
+          <li class="rev">
+            <div class="rev-head"><b>Beata</b><time datetime="2026-04-08">8 kwietnia 2026</time></div>
+            <span class="stars" aria-label="5 na 5 gwiazdek"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+            <blockquote>REWELACJA POPROSTU SUPER, kupowałam maszynki z hurtowni fale loki koki i kurcze ta moc silnika z tej maszynki jest niesamowita. Ten odgłos ciętych włosów ..- słyszysz że masz pożądaną maszynkę , mocna z ostrymi ostrzami . Mam nadzie że długo będę zadowolona z pracy ta maszynka . Proszę tylko o info jeżeli chodzi o czyszczenie - tylko oliwić i powierzchownie zmiatać włosy czy trzeba ostrza rozkręcać .., bo tego nie lubie..</blockquote>
+          </li>
+          <li class="rev">
+            <div class="rev-head"><b>Barbara</b><time datetime="2025-10-14">14 października 2025</time></div>
+            <span class="stars" aria-label="5 na 5 gwiazdek"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></span>
+            <blockquote>Super, polecam tnie jak szalona!</blockquote>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- Głos barberów: cytaty ze strony głównej sklepu, wyraźnie podpisane, że nie dotyczą tej karty -->
+<section class="barbers" aria-labelledby="h-barbers">
+  <div class="wrap">
+    <h2 class="sec" id="h-barbers">Co mówią barberzy o sprzęcie 4barber</h2>
+    <p class="barbers-note">Opinie ze strony głównej sklepu</p>
+    <ul class="quotes">
+      <li><figure class="quote">
+        <blockquote>Maszynki od 4Barber bardzo pozytywnie mnie zaskoczyły — są ciche, precyzyjne, wygodne i świetnie leżą w dłoni. Po kilku tygodniach pracy mogę śmiało powiedzieć, że stosunek jakości do ceny jest rewelacyjny. Do tego szybka wysyłka i świetna obsługa. Zdecydowanie polecam — 10/10!</blockquote>
+        <figcaption><img src="assets/barberzy/wiktoria-roszak.webp" alt="" width="52" height="52" loading="lazy"><span><b>Wiktoria Roszak</b><span>Barber @wiktoria_roszak</span></span></figcaption>
+      </figure></li>
+      <li><figure class="quote">
+        <blockquote>Jestem bardzo zadowolony ze sprzętu od 4Barber. Suszarka sprawdza się lepiej niż modele Babyliss i Dyson, których używałem wcześniej. Maszynki WMARK są solidne, precyzyjne i bardzo komfortowe w pracy. Zdecydowanie polecam każdemu, kto szuka profesjonalnego sprzętu wysokiej jakości.</blockquote>
+        <figcaption><img src="assets/barberzy/akim-dashko.webp" alt="" width="52" height="52" loading="lazy"><span><b>Akim Dashko</b><span>Barber @akim_dashko</span></span></figcaption>
+      </figure></li>
+      <li><figure class="quote">
+        <blockquote>Mam u siebie na stanowisku ten zestaw już od jakiegoś czasu i powiem serio dowozi jestem zachwycony polecam każdemu z czystym sumieniem</blockquote>
+        <figcaption><img src="assets/barberzy/jedrys.webp" alt="" width="52" height="52" loading="lazy"><span><b>Jędrys</b><span>Barber @jedrysgs</span></span></figcaption>
+      </figure></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Skompletuj zestaw: te same 3 produkty, które sklep proponuje po dodaniu do koszyka, + próg darmowej dostawy -->
+<section class="wrap" aria-labelledby="h-xsell">
+  <h2 class="sec" id="h-xsell">Skompletuj zestaw</h2>
+  <ul class="xsell">
+    <li class="xitem"><img src="assets/cross/trymer-ng339.webp" alt="" width="500" height="500" loading="lazy"><span class="n">Trymer WMARK NG-339 Czarny</span><span class="p">169,99 zł</span><button class="btn btn-sm btn-line js-x" type="button" aria-pressed="false">Dodaj</button></li>
+    <li class="xitem"><img src="assets/cross/shaver-ng984a.webp" alt="" width="500" height="500" loading="lazy"><span class="n">Shaver WMARK NG-984A Czarny</span><span class="p">169,99 zł</span><button class="btn btn-sm btn-line js-x" type="button" aria-pressed="false">Dodaj</button></li>
+    <li class="xitem"><img src="assets/cross/notbad-blade-oil.webp" alt="" width="500" height="500" loading="lazy"><span class="n">NOTBAD Blade Oil 60ml</span><span class="p">19,99 zł</span><button class="btn btn-sm btn-line js-x" type="button" aria-pressed="false">Dodaj</button></li>
+  </ul>
+  <p class="freeship"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg><span>Darmowa dostawa od 250 zł — do progu brakuje <b class="num">20,01 zł</b></span></p>
+</section>
+
+<!-- Bezpieczeństwo produktu (GPSR): dane producenta i importera, zwinięte -->
+<section class="wrap" aria-labelledby="h-safe">
+  <h2 class="sec" id="h-safe">Bezpieczeństwo produktu</h2>
+  <div class="acc safety">
+    <details>
+      <summary>Producent i osoba odpowiedzialna w UE<svg class="ico" aria-hidden="true"><use href="#i-chev-d"/></svg></summary>
+      <div class="acc-body">
+        <dl>
+          <div><dt>Producent</dt><dd>New Gain, Shenzhen, Chiny</dd></div>
+          <div><dt>Importer / osoba odpowiedzialna w UE</dt><dd>Miłosz Szczepkowski, Górnicza 1, Bukowno</dd></div>
+        </dl>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- Mini-stopka: kontakt z ludźmi, płatności, dostawa, platforma + chip wersji makiety -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>Kontakt</h2>
+        <ul>
+          <li><span class="num">Pon–Pt 8:00–16:00</span></li>
+          <li><span class="who">Jolanta · Obsługa klienta</span><a class="tel" href="tel:+48535206437"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>+48 535 206 437</a></li>
+          <li><span class="who">Dawid · Doradztwo techniczne</span><a class="tel" href="tel:+48791659359"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>+48 791 659 359</a></li>
+          <li><a href="mailto:kontakt@4barber.pl"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>kontakt@4barber.pl</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Płatności</h2>
+        <p>BLIK, karty, Google Pay, Apple Pay, Przelewy24, raty (Przelewy24 Raty), PayPo</p>
+      </div>
+      <div>
+        <h2>Dostawa</h2>
+        <ul>
+          <li>InPost Paczkomat 24/7 — <span class="num">9,99 zł</span></li>
+          <li>InPost Kurier — <span class="num">9,99 zł</span></li>
+          <li>Darmowa dostawa od <span class="num">250 zł</span></li>
+          <li>Wysyłka w 24 h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Sklep internetowy Shoper Premium</span>
+      <span class="chip-ver">makieta v6 · 27.09.2026 · dane z 4barber.pl</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky CTA (tylko telefon): pokazuje się, gdy główny przycisk zniknie z ekranu -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="sticky-price"><b>229,99 zł</b><span>Wysyłka w 24 h</span></div>
+  <button class="btn btn-cta js-add" type="button" tabindex="-1">Dodaj do koszyka</button>
+</div>
+
+<!-- Panel po dodaniu do koszyka: potwierdzenie, próg darmowej dostawy i „Skompletuj zestaw” (makieta, bez prawdziwego koszyka) -->
+<dialog class="added" id="added" aria-labelledby="added-h">
+  <div class="added-in">
+    <div class="added-head">
+      <h2 id="added-h" tabindex="-1" autofocus>Dodano do koszyka</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Zamknij"><svg class="ico"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="added-prod">
+      <img src="assets/ng139/czarna-01.webp" alt="" width="72" height="72">
+      <div><b>Maszynka WMARK NG-139 <span id="added-color">Czarna</span></b><span class="vat"><span class="p">229,99 zł</span> w tym 23% VAT</span></div>
+    </div>
+    <div>
+      <p class="bar-txt">Do darmowej dostawy brakuje Ci <b class="num">20,01 zł</b></p>
+      <div class="bar" role="img" aria-label="Wartość koszyka względem progu darmowej dostawy"><i></i></div>
+      <div class="bar-scale"><span>0 zł</span><span>250 zł</span></div>
+    </div>
+    <div>
+      <h3>Skompletuj zestaw</h3>
+      <ul class="mini">
+        <li><img src="assets/cross/trymer-ng339.webp" alt="" width="56" height="56" loading="lazy">Trymer WMARK NG-339 Czarny<span class="p">169,99 zł</span><button class="btn btn-line js-x" type="button" aria-pressed="false">Dodaj</button></li>
+        <li><img src="assets/cross/shaver-ng984a.webp" alt="" width="56" height="56" loading="lazy">Shaver WMARK NG-984A Czarny<span class="p">169,99 zł</span><button class="btn btn-line js-x" type="button" aria-pressed="false">Dodaj</button></li>
+        <li><img src="assets/cross/notbad-blade-oil.webp" alt="" width="56" height="56" loading="lazy">NOTBAD Blade Oil 60ml<span class="p">19,99 zł</span><button class="btn btn-line js-x" type="button" aria-pressed="false">Dodaj</button></li>
+      </ul>
+    </div>
+    <div class="added-actions">
+      <a class="btn btn-cta" href="#">Przejdź do realizacji zamówienia</a>
+      <button class="btn btn-2" type="button" data-close>Przeglądaj dalej</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* Zachowanie makiety: galeria, warianty, zakładki, wideo, licznik do 16:00, sticky CTA, panel koszyka. Bez zależności. */
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  // Galeria: licznik/kropki/miniatury śledzą przewijany tor; miniatury i strzałki przewijają tor.
+  var track = $('#track'), slides = $$('.slide', track), dots = $$('#dots span'), thumbs = $$('#thumbs button'), cur = 0;
+  function mark(i) {
+    cur = i; $('#gal-i').textContent = i + 1;
+    dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+    thumbs.forEach(function (t, k) { t.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+  }
+  function go(i) { i = (i + slides.length) % slides.length; track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: 'smooth' }); mark(i); }
+  track.addEventListener('scroll', function () { var i = Math.round(track.scrollLeft / track.clientWidth); if (i !== cur) mark(i); }, { passive: true });
+  thumbs.forEach(function (t, k) { t.addEventListener('click', function () { go(k); }); });
+  $$('.gal-arrow').forEach(function (b) { b.addEventListener('click', function () { go(cur + (+b.dataset.dir)); }); });
+
+  // Warianty koloru: w sklepie to osobne produkty w tej samej cenie; tu podmieniamy nazwę i zdjęcie główne.
+  $$('.swatch').forEach(function (s) {
+    s.addEventListener('click', function () {
+      $$('.swatch').forEach(function (o) { o.setAttribute('aria-pressed', o === s ? 'true' : 'false'); });
+      var n = s.dataset.name; $('#v-name').textContent = n; $('#p-color').textContent = n; $('#added-color').textContent = n;
+      $('#main-img').src = s.dataset.img; go(0);
+    });
+  });
+
+  // Ulubione: tylko stan wizualny.
+  $$('.fav').forEach(function (f) { f.addEventListener('click', function () { f.setAttribute('aria-pressed', f.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); }); });
+
+  // Zakładki „Dla kogo” (klawiatura: strzałki).
+  var tabs = $$('[role=tab]');
+  function sel(t) {
+    tabs.forEach(function (o) { var on = o === t; o.setAttribute('aria-selected', on); o.tabIndex = on ? 0 : -1; $('#' + o.getAttribute('aria-controls')).hidden = !on; });
+    t.focus();
+  }
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { sel(t); });
+    t.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); sel(tabs[(k + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]); } });
+  });
+
+  // Wideo: iframe dopiero po kliknięciu (nocookie).
+  $('#video button').addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/qas1XSsTVe8?autoplay=1&rel=0';
+    f.title = 'Zobacz sprzęt w praktyce'; f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true;
+    $('#video').replaceChildren(f);
+  });
+
+  // Licznik: do najbliższej 16:00 (dziś albo jutro).
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    var now = new Date(), t = new Date(now); t.setHours(16, 0, 0, 0); if (t <= now) t.setDate(t.getDate() + 1);
+    var s = Math.floor((t - now) / 1000);
+    $('#t-h').textContent = pad(Math.floor(s / 3600)); $('#t-m').textContent = pad(Math.floor(s % 3600 / 60)); $('#t-s').textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Sticky CTA: widoczny tylko, gdy główny przycisk jest poza ekranem.
+  var sticky = $('#sticky'), stickyBtn = $('.js-add', sticky);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      var hide = es[0].isIntersecting;
+      sticky.classList.toggle('show', !hide); sticky.setAttribute('aria-hidden', hide); stickyBtn.tabIndex = hide ? -1 : 0;
+      document.body.classList.toggle('has-sticky', !hide);
+    }).observe($('#main-cta'));
+  }
+
+  // Panel „Dodano do koszyka”.
+  var dlg = $('#added');
+  function openAdded() { $('#cart-count').textContent = '1'; dlg.showModal(); }
+  $$('.js-add').forEach(function (b) { b.addEventListener('click', openAdded); });
+  if (location.hash === '#dodano') openAdded(); // link podglądu panelu: pdp-v1.html#dodano
+  $$('[data-close]', dlg).forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  $$('.js-x').forEach(function (b) {
+    b.addEventListener('click', function () { var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); b.textContent = on ? 'Dodano' : 'Dodaj'; });
+  });
+})();
+</script>
+<script>
+/* v5: linijka nasadek — skala 0–26 mm rysowana z danych karty, osiem stopni + strefa samego ostrza; dotknięcie ustawia wskaźnik */
+(function(){
+  const NS='http://www.w3.org/2000/svg', mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const X=mm=>10+mm*13;
+  const base=document.getElementById('rulerBase'); if(!base) return;
+  for(let mm=0;mm<=26;mm++){const h=mm%5?6:12;base.appendChild(mk('line',{x1:X(mm),y1:54,x2:X(mm),y2:54+h}));}
+  const stops=[3,6,10,13,16,19,22,25], g=document.getElementById('rulerStops');
+  stops.forEach(mm=>{g.appendChild(mk('line',{x1:X(mm),y1:40,x2:X(mm),y2:54,stroke:'#121212','stroke-width':1.5}));const t=mk('text',{x:X(mm),y:36,fill:'#121212','font-family':'Oswald, sans-serif','font-weight':600,'font-size':12,'text-anchor':'middle'});t.textContent=mm;g.appendChild(t);});
+  const cur=document.getElementById('rulerCursor'), val=document.getElementById('stopVal'), txt=document.getElementById('stopTxt'), zone=document.getElementById('bladeZone');
+  const setStop=mm=>{const blade=mm==='blade';cur.setAttribute('transform',`translate(${blade?X(1.25):X(mm)},72)`);val.textContent=blade?'0,5–2':mm;txt.textContent=blade?'samym ostrzem: kontury, wykończenia':'nasadka w zestawie';zone.setAttribute('opacity',blade?'.45':'.12');document.querySelectorAll('.stops button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mm===String(mm))));};
+  document.querySelectorAll('.stops button').forEach(b=>b.addEventListener('click',()=>setStop(b.dataset.mm==='blade'?'blade':+b.dataset.mm)));
+  setStop(3);
+})();
+</script>
+</body>
+</html>
