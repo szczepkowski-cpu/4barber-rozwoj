@@ -49,9 +49,9 @@ small.src{display:block;color:var(--ink-2);font-size:13px;margin-top:10px}
   <h1>Obecny 4barber.pl — przegląd z 27.09.2026</h1>
   <p class="lead">Oglądane jak klient z reklamy: telefon 390×844 i desktop 1440. Strona główna, kategoria Maszynki, karta bestsellera NG-139, moment po dodaniu do koszyka, koszyk. Wszystkie liczby ze zrzutów i HTML sklepu (Shoper Premium), odczyt 27.09.2026 ok. 20:45.</p>
   <div class="facts">
-    <div><b>≈1 900 px</b>od góry do „Dodaj do koszyka” na telefonie (ponad 2 ekrany; zrzut m-pdp p1–p2)</div>
+    <div><b>1 881 px</b>od góry do „Dodaj do koszyka” w treści karty na telefonie; nazwa od 811 px, cena ≈1 280 px (pomiar Playwright)</div>
     <div><b>3 warstwy</b>przy wejściu na telefonie: pasek gratisów + modal cookies + popup „Zgarnij tajną zniżkę” (edrone)</div>
-    <div><b>brak</b>przyklejonego „Dodaj do koszyka” na telefonie — dolny pasek to Menu/Szukaj/Konto/Koszyk</div>
+    <div><b>bez ceny</b>przyklejony „Dodaj do koszyka” na telefonie jest (nad paskiem Menu/Szukaj/Konto/Koszyk), ale bez ceny i nazwy — klient kupuje „w ciemno” albo przewija</div>
     <div><b>8 360 px</b>długość strony głównej na telefonie; karta produktu 6 300 px</div>
   </div>
 </header>
@@ -84,14 +84,14 @@ small.src{display:block;color:var(--ink-2);font-size:13px;margin-top:10px}
 <section class="place">
   <h2>Karta produktu: Maszynka WMARK NG-139 Czarna (bestseller, 229,99 zł)</h2>
   <div class="shots">
-    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-fold-clean.jpg" width="390" height="844" alt="Karta NG-139 na telefonie, pierwszy ekran" loading="lazy"><figcaption>Telefon, pierwszy ekran (po zamknięciu okien): zdjęcie i licznik wysyłki. Bez ceny, bez nazwy, bez przycisku — przycisk na dole to przypadkowy fragment po przewinięciu przez modal.</figcaption></figure>
+    <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-fold-clean.jpg" width="390" height="844" alt="Karta NG-139 na telefonie, pierwszy ekran" loading="lazy"><figcaption>Telefon, pierwszy ekran (po zamknięciu okien): zdjęcie i licznik wysyłki, na dole przyklejony „Dodaj do koszyka” (Shoper). Bez nazwy i bez ceny — przycisk jest, ale nie wiadomo, za ile i co.</figcaption></figure>
     <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-full-p1.jpg" width="390" height="1700" alt="Karta NG-139 na telefonie, 0–1700 px" loading="lazy"><figcaption>0–1 700 px: nazwa, ocena, długa lista ✓ parametrów, czerwony „Przejdź do pełnego opisu”, cena 229,99, ikony zaufania, wielkie kafle wariantów. Przycisku kupna wciąż nie ma.</figcaption></figure>
     <figure><img src="zrzuty/audyt-2026-09-27/m-pdp-ng139-full-p2.jpg" width="390" height="1700" alt="Karta NG-139 na telefonie, 1700–3400 px" loading="lazy"><figcaption>1 700–3 400 px: „Dodaj do koszyka” dopiero tutaj (≈1 900 px), potem baner rat i czarny prostokąt wideo (embed YouTube nie ładuje się w podglądzie).</figcaption></figure>
     <figure class="wide"><img src="zrzuty/audyt-2026-09-27/d-pdp-ng139-fold.jpg" width="1440" height="900" alt="Karta NG-139 na desktopie" loading="lazy"><figcaption>Desktop: dwa łamy, nazwa, ocena 5.00 (13), parametry, cena 229,99 zł, ikony zaufania — ale „Dodaj do koszyka” jest pod dolną krawędzią ekranu 900 px.</figcaption></figure>
   </div>
   <div class="diag">
     <div class="keep"><h3>Zostaje</h3><ul><li>Treść karty jest dobra: parametry, „Co wyróżnia”, „Dla kogo”, FAQ, ostrzeżenie o ładowarce, wideo — to fakty, nie marketing.</li><li>Ocena 5.00 z 13 ocen i 2 recenzjami, licznik „paczka jutro”, „Wysyłka w 24 h”, 4 ikony zaufania (Doradztwo barbera, Serwis w Polsce, Oryginalny sprzęt, Sprawdzone przez barberów).</li><li>Modal po dodaniu do koszyka (niżej) — wzorowy.</li></ul></div>
-    <div class="block"><h3>Blokuje sprzedaż</h3><ul><li><b>Cena i przycisk poza pierwszym ekranem</b> na telefonie i desktopie; na telefonie przycisk po ≈1 900 px i bez wersji przyklejonej — po przewinięciu do opisu klient musi wracać.</li><li>Kolejność odwrotna do decyzji: parametry (7 wierszy) przed ceną; czerwony przycisk „Przejdź do pełnego opisu” konkuruje z pomarańczowym „Dodaj”.</li><li>Warianty kolorów jako 4 wielkie kafle (~700 px) między ceną a przyciskiem.</li><li>Trzy liczby, które sprzedają tę maszynkę (8000–8500 obr./min, 8 nasadek 3–25 mm, ceramika) są ukryte w tekście opisu poniżej wideo.</li><li>Opinie barberów z nazwiskiem są tylko na stronie głównej — na karcie ich nie ma.</li><li>Wideo nie ma miniatury (czarny prostokąt do czasu załadowania YouTube).</li></ul></div>
+    <div class="block"><h3>Blokuje sprzedaż</h3><ul><li><b>Nazwa i cena poza pierwszym ekranem</b> na telefonie (nazwa od 811 px, cena ≈1 280 px); przyklejony „Dodaj do koszyka” jest, ale bez ceny — właściwy przycisk w treści dopiero na 1 881 px. Na desktopie przycisk pod krawędzią ekranu (1 039 px).</li><li>Kolejność odwrotna do decyzji: parametry (7 wierszy) przed ceną; czerwony przycisk „Przejdź do pełnego opisu” konkuruje z pomarańczowym „Dodaj”.</li><li>Warianty kolorów jako 4 wielkie kafle (~700 px) między ceną a przyciskiem.</li><li>Trzy liczby, które sprzedają tę maszynkę (8000–8500 obr./min, 8 nasadek 3–25 mm, ceramika) są ukryte w tekście opisu poniżej wideo.</li><li>Opinie barberów z nazwiskiem są tylko na stronie głównej — na karcie ich nie ma.</li><li>Wideo nie ma miniatury (czarny prostokąt do czasu załadowania YouTube).</li></ul></div>
   </div>
 </section>
 
@@ -111,7 +111,7 @@ small.src{display:block;color:var(--ink-2);font-size:13px;margin-top:10px}
 <div class="verdict">
   <h2>Wniosek: karta produktu to miejsce, gdzie ucieka najwięcej</h2>
   <ol>
-    <li>Treść jest dobra — problem to <b>kolejność i odległość do przycisku</b>. Na telefonie klient z reklamy widzi zdjęcie i licznik, a cena i „Dodaj” są dwa ekrany niżej, bez wersji przyklejonej.</li>
+    <li>Treść jest dobra — problem to <b>kolejność</b>. Na telefonie klient z reklamy widzi zdjęcie, licznik i przyklejony przycisk bez ceny; nazwa i cena są ekran–dwa niżej, właściwy przycisk w treści na 1 881 px.</li>
     <li>Trzy propozycje karty (linki w galerii) rozwiązują to samo trzema sposobami: v1 — ten sam wygląd, nowa kolejność i sticky CTA; v2 — karta wokół dowodu barberów na ciemnym stanowisku; v3 — karta techniczna maszyny z liczbami i skalą.</li>
     <li>Po wyborze kierunku: strona główna (warstwy przy wejściu, tekst przed produktami), kategoria (filtry, warianty), koszyk (pasek darmowej dostawy zamiast kafli gratisów).</li>
   </ol>
