@@ -13,6 +13,7 @@ Podgląd: https://szczepkowski-cpu.github.io/4barber-rozwoj/
 - `dane/ng139-2026-09-27.md` — wszystkie fakty produktu (ceny, parametry, opinie, dostawa) z żywego sklepu, z datą odczytu.
   W makietach nie ma żadnej liczby, której tu nie ma.
 - `assets/` — zdjęcia produktu ze sklepu (+ wycinanki z przezroczystym tłem), logo, zdjęcia barberów z opinii, produkty do zestawu.
+- `eksport/v6-shoper/` (+ zip) — paczka wdrożeniowa dla rozmowy pracującej z Shoperem: README, spec sekcji, kod, fakty, assets, zrzuty.
 - `zrzuty/` — zrzuty audytu i każdej wersji.
 - `PRODUCT.md`, `.impeccable/` — kontekst produktu i kontrakty kierunków (Impeccable).
 
