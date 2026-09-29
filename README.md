@@ -14,6 +14,7 @@ Podgląd: https://szczepkowski-cpu.github.io/4barber-rozwoj/
   W makietach nie ma żadnej liczby, której tu nie ma.
 - `assets/` — zdjęcia produktu ze sklepu (+ wycinanki z przezroczystym tłem), logo, zdjęcia barberów z opinii, produkty do zestawu.
 - `eksport/v6-shoper/` (+ zip) — paczka wdrożeniowa dla rozmowy pracującej z Shoperem: README, spec sekcji, kod, fakty, assets, zrzuty.
+- `eksport/v1-dla-wykonawcy/` (+ zip) — kompletna paczka dla wykonawcy (człowieka): zlecenie, makieta offline, specyfikacja, PDF-y, zrzuty, warianty archiwalne.
 - `zrzuty/` — zrzuty audytu i każdej wersji.
 - `PRODUCT.md`, `.impeccable/` — kontekst produktu i kontrakty kierunków (Impeccable).
 

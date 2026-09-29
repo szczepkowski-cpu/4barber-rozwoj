@@ -1,0 +1,181 @@
+<!doctype html><html lang="pl"><head><meta charset="UTF-8"><title>4barber — specyfikacja wdrożenia karty produktu (v6)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:14mm 14mm 16mm}
+body{margin:0;font:400 10pt/1.45 Barlow,system-ui,sans-serif;color:#121212}
+h1{font:700 22pt/1.1 'Barlow Condensed',sans-serif;margin:0 0 4mm}
+h2{font:600 15pt/1.15 'Barlow Condensed',sans-serif;margin:6mm 0 2mm;padding-bottom:1mm;border-bottom:1px solid #E4E2DD}
+h3{font:600 11pt/1.2 Barlow,sans-serif;margin:4mm 0 1.5mm}
+p{margin:0 0 2mm} li{margin-bottom:1mm} ul,ol{margin:0 0 2mm;padding-left:5mm}
+table{width:100%;border-collapse:collapse;font-size:8.5pt;margin:2mm 0 3mm} td,th{text-align:left;padding:1.3mm 1.8mm;border-bottom:1px solid #E4E2DD;vertical-align:top} th{font-weight:600;border-bottom:2px solid #121212}
+code{font-family:ui-monospace,monospace;font-size:8.5pt;background:#F6F5F2;padding:0 2px;border-radius:2px} pre{background:#F6F5F2;padding:2mm 3mm;font-size:8.5pt;white-space:pre-wrap;border-radius:3px}
+blockquote{margin:0 0 3mm;padding:2mm 3mm;background:#F6F5F2;border-radius:3px;color:#5C5A56}
+a{color:#C61D2E} .doc{page-break-before:always} .doc:first-child{page-break-before:auto} .src{font-size:8pt;color:#8A8782;margin-bottom:3mm}
+</style></head><body><section class="doc"><p class="src">Plik: 00-ZLECENIE.md</p><h1>Zlecenie: nowa karta produktu w sklepie 4barber.pl (Shoper Storefront)</h1>
+<p>Data: 2026-09-29 · Zleceniodawca: Szymon Szczepkowski, 4barber.pl · Wersja makiety: <b>v6</b> (linia biała; w rozmowach nazywana „v1”)</p>
+<h2>1. Cel w dwóch zdaniach</h2>
+<p>Karta produktu ma wyglądać jak dzisiejszy sklep (te same kolory, fonty, przycisk), ale sprzedawać lepiej na telefonie: nazwa, ocena, cena, „Wysyłka w 24 h”,</p>
+<p>kolor i „Dodaj do koszyka” w pierwszym ekranie, a technikalia pod spodem jako liczby, linijka nasadek i „Co jest w pudełku”, bez ściany tekstu.</p>
+<p>Wzorcem jest <b><code>01-makieta/pdp-v6.html</code></b> (otwórz w przeglądarce: telefon 390 px i desktop 1440 px). Na żywo: <a href="https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v6.html">https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v6.html</a></p>
+<h2>2. Co dostajesz w tej paczce</h2>
+<table>
+<tr><th>Folder</th><th>Co to</th></tr>
+<tr><td><code>01-makieta/</code></td><td>Makieta HTML+CSS+JS z zasobami (działa offline, fonty z Google Fonts). Plik główny <code>pdp-v6.html</code>; CSS i JS wyjęte obok dla wygody.</td></tr>
+<tr><td><code>02-specyfikacja/</code></td><td><code>SEKCJE.md</code> (24 sekcje: skąd dane, układ, zachowanie), <code>README-WDROZENIE.md</code> (co widać w żywym szablonie, kolejność, tokeny, kryteria), fakty produktu <code>dane-ng139-2026-09-27.md</code>.</td></tr>
+<tr><td><code>03-pdf/</code></td><td><code>SPECYFIKACJA.pdf</code> (to zlecenie + sekcje + README w jednym), <code>raport-2026-09-27.pdf</code> (przegląd sklepu i propozycje), <code>porownanie-2026-09-27.pdf</code> (obecna karta vs nowa, z pomiarami).</td></tr>
+<tr><td><code>04-zrzuty/</code></td><td>Zrzuty makiety v6 (telefon/desktop, pierwszy ekran i cała strona) oraz obecnej karty i koszyka (<code>obecna-karta/</code>).</td></tr>
+<tr><td><code>05-warianty-archiwum/</code></td><td>Wcześniejsze warianty — tylko do wglądu, nie do wdrożenia.</td></tr>
+</table>
+<h2>3. Zakres prac (co masz zrobić)</h2>
+<ol>
+<li><b>Przebudować kartę produktu w Shoper Storefront</b> tak, by odpowiadała makiecie v6 na telefonie (390 px) i desktopie (1440 px) — kolejność i układ z <code>SEKCJE.md</code>. Z odczytu żywego szablonu: karta to kompozycja modułów (<code>product-gallery</code>, nazwa, <code>product-rating</code>, <code>product-short-description</code>, <code>product-price</code>, <code>product-quantity</code>, <code>buy-button</code>, <code>product-shipping-time</code>, <code>product-codes</code>, <code>product-description</code>, <code>product-review</code>, <code>h-accordion</code>), skin <code>shoper_basic_copy_108</code>. Spodziewamy się: przestawienia modułów w kreatorze, CSS w skinie i 2–3 własnych modułów HTML/JS (Technikalia z linijką nasadek i „Co jest w pudełku”, „Co mówią barberzy”, „Skompletuj zestaw” na karcie).</li>
+<li><b>Prawa szpalta (desktop) jako jedna karta</b>: nazwa → ocena → cena + zielona pastylka „Wysyłka w 24 h” → „Kolor: …” z próbkami w jednej linii → „Dodaj do koszyka” + serce → 4 gwarancje (2×2, wyciszone) → licznik wysyłki jedną linią. Szpalta przyklejona przy przewijaniu.</li>
+<li><b>Telefon</b>: ta sama kolejność w jednej kolumnie; przyklejony pasek na dole ma pokazywać <b>cenę i dostępność obok przycisku</b> (dziś tylko przycisk).</li>
+<li><b>Technikalia pod zakupem</b> (patrz sekcje 10–14 w <code>SEKCJE.md</code>): cztery kafle liczb, linijka nasadek zbudowana z cechy „Regulacja długości strzyżenia”, „Co jest w pudełku” z cechy „Zawartość zestawu”, karty Ostrza/Zasilanie, pełna tabela parametrów w rozwijaku. Lista parametrów NIE może już stać przed ceną.</li>
+<li><b>Treść pod spodem</b>: „Dla kogo” jako dwie krótkie karty, wideo z miniaturą (iframe YouTube dopiero po kliknięciu), „O maszynce” = intro + trzy kroki pielęgnacji, FAQ jako akordeon, opinie produktu, „Co mówią barberzy” (3 cytaty ze strony głównej), „Skompletuj zestaw” z progiem darmowej dostawy 250 zł, „Bezpieczeństwo produktu” w rozwijaku.</li>
+<li><b>Rozwiązanie ma być szablonowe</b>, nie tylko dla NG-139: sekcje budują się z pól produktu (cechy, opis, produkty powiązane). Gdy produkt nie ma danej cechy, sekcja się nie pokazuje (np. brak linijki dla kosmetyku). Treści opisowe (intro, kroki, „Dla kogo”) pochodzą z opisu produktu w panelu — uzgodnij z nami prostą konwencję (np. nagłówki w opisie), którą szablon rozpozna.</li>
+<li><b>Praca na kopii szablonu / w podglądzie</b>, publikacja dopiero po naszej akceptacji na wskazanych produktach (NG-139 Czarna jako wzorzec + 2 inne kategorie do sprawdzenia: trymer, kosmetyk).</li>
+</ol>
+<h2>4. Czego nie ruszać</h2>
+<p>Checkout, modal „Dodano do koszyka” (jest dobry), nagłówek i menu, okna cookies i zniżki (edrone), analityka (GA4/GTM, TikTok, edrone), JSON-LD produktu, treści produktów (nie edytujesz opisów bez uzgodnienia).</p>
+<h2>5. Twarde zasady</h2>
+<ul>
+<li><b>Zero wymyślonych danych.</b> Każda liczba i tekst na karcie pochodzi z pól produktu w Shoperze. Nie dopisujesz cech, których produkt nie ma (np. czas pracy baterii, gwarancja w miesiącach).</li>
+<li>Wygląd = tokeny z <code>README-WDROZENIE.md</code> (Inter, Oswald, pomarańcz <code>#F57905</code>, czerwień <code>#C61D2E</code>, promienie 10/14 px). Nie wprowadzaj nowych kolorów ani fontów.</li>
+<li>Wszystko, co dotyka analityki lub koszyka, sprawdzasz przed i po (dataLayer po „Dodaj do koszyka”, zdarzenia view_item / add_to_cart).</li>
+</ul>
+<h2>6. Kryteria odbioru (mierzymy, nie oceniamy „na oko”)</h2>
+<ol>
+<li>Telefon 390×844, NG-139 Czarna, po zamknięciu okien: dolna krawędź „Dodaj do koszyka” ≤ 730 px; w pierwszym ekranie widać nazwę, ocenę, cenę, „Wysyłka w 24 h” i próbki koloru.</li>
+<li>Desktop 1440×900: „Dodaj do koszyka” w całości nad 900 px; prawa szpalta przyklejona.</li>
+<li>Przyklejony pasek na telefonie pokazuje cenę i dostępność obok przycisku.</li>
+<li>Parametry nie występują przed ceną; technikalia raz; pełna tabela tylko w rozwijaku.</li>
+<li>Wideo ma miniaturę; warianty kolorów jako próbki, nie kafle.</li>
+<li>Modal „Dodano do koszyka”, checkout, analityka i JSON-LD działają jak przed zmianą.</li>
+<li>Działa na 3 produktach z różnych kategorii (maszynka, trymer, kosmetyk) bez błędów w konsoli; Lighthouse mobile Performance nie gorszy niż przed zmianą.</li>
+</ol>
+<p>Pomiar w konsoli przeglądarki: <code>const r=document.querySelector('.btn_primary.btn_full-width').getBoundingClientRect(); console.log(r.top+scrollY, r.bottom+scrollY)</code></p>
+<h2>7. Co dostarczasz</h2>
+<ul>
+<li>Wdrożenie na kopii szablonu + link do podglądu; po akceptacji publikacja.</li>
+<li>Krótki opis, co zmieniłeś (moduły, pliki CSS/JS, własne moduły) — tak, żebyśmy mogli to utrzymać.</li>
+<li>Zrzuty telefon/desktop dla 3 produktów + wyniki pomiaru z punktu 6.</li>
+</ul>
+<h2>8. Otwarte punkty do ustalenia na starcie</h2>
+<ul>
+<li>Stan „brak na stanie”: pastylka szara + „Powiadom mnie o dostępności” zamiast przycisku (istniejący mechanizm Shopera) — potwierdzić układ.</li>
+<li>Konwencja treści w opisie produktu (intro / „Dla kogo” / kroki / FAQ), żeby szablon je rozpoznawał.</li>
+<li>Baner rat Przelewy24 pod przyciskiem: zostawić jako rozwijak pod ceną czy usunąć z karty.</li>
+</ul>
+<p>Kontakt w sprawie zlecenia: Szymon Szczepkowski (4barber.pl).</p></section><section class="doc"><p class="src">Plik: 02-specyfikacja/SEKCJE.md</p><h1>Sekcje karty v6 — co, skąd dane, jak się zachowuje</h1>
+<p>Legenda źródeł: <b>[pole]</b> = standardowe pole/moduł Shopera · <b>[opis]</b> = z opisu produktu (HTML w panelu) · <b>[ręcznie]</b> = treść per produkt do wpisania/ustalenia · <b>[sklep]</b> = ustawienia sklepu.</p>
+<table>
+<tr><th>#</th><th>Sekcja (v6)</th><th>Skąd dane</th><th>Telefon</th><th>Desktop</th><th>Zachowanie</th></tr>
+<tr><td>1</td><td>Pasek gratisów „Odbierz w koszyku 2 gratisy…”</td><td>istniejący moduł</td><td>36 px, jak dziś</td><td>jak dziś</td><td>bez zmian</td></tr>
+<tr><td>2</td><td>Galeria</td><td><code>product-gallery</code> [pole]</td><td>300 px, przewijanie, kropki, licznik „1/8”, logo WMARK w rogu</td><td>55 % szerokości, miniatury pionowo 80 px, strzałki</td><td>jak dziś, mniejsza wysokość na telefonie</td></tr>
+<tr><td>3</td><td>Nazwa</td><td><code>h1</code> [pole]</td><td>21 px, 1–2 linie</td><td>28 px</td><td>—</td></tr>
+<tr><td>4</td><td>Ocena</td><td><code>product-rating</code> [pole]</td><td>„★★★★★ 5.00 · 13 ocen · 2 recenzje”, link do #opinie</td><td>jw.</td><td>przewija do opinii</td></tr>
+<tr><td>5</td><td>Cena + wysyłka</td><td><code>product-price</code> + <code>product-shipping-time</code> [pole]</td><td>cena 32 px + zielona pastylka „Wysyłka w 24 h” w jednej linii</td><td>cena 36 px</td><td>pastylka z ikoną ciężarówki; brak stanu = pastylka szara „W oczekiwaniu na dostawę” + przycisk „Powiadom mnie” (stan do dopracowania po wyborze)</td></tr>
+<tr><td>6</td><td>Kolor</td><td>moduł „Dostępne warianty” (produkty powiązane) [pole]</td><td>„Kolor: Czarna” + 4 próbki 48 px w jednej linii</td><td>48 px</td><td>próbka = link do produktu w tym kolorze; aktywna z pomarańczową ramką</td></tr>
+<tr><td>7</td><td>Dodaj do koszyka + ulubione</td><td><code>buy-button</code>, <code>add-to-favourites</code> [pole]; <code>product-quantity</code> ukryty lub kompaktowy</td><td>pełna szerokość 54 px + serce 54 px</td><td>jw.</td><td>otwiera istniejący <code>added-to-basket-modal</code></td></tr>
+<tr><td>8</td><td>Gwarancje (4)</td><td>istniejący blok ikon w module ceny</td><td>2×2, ikona 18 px czerwona, tekst 13 px szary</td><td>2×2</td><td>statyczne</td></tr>
+<tr><td>9</td><td>Licznik wysyłki</td><td>istniejący moduł licznika</td><td>jedna linia: ikona zegara, „Paczka zostanie jutro wysłana · zamów przez 19 godz. 01 min. 07 sek.”</td><td>jw.</td><td>mechanizm sklepu; bez ramki i bez kafli</td></tr>
+<tr><td>10</td><td>Technikalia: 4 kafle liczb</td><td><code>product-short-description</code> / cechy [pole] + [ręcznie] rpm z opisu</td><td>2×2 kafle beżowe, liczba Oswald 32 px, jednostka pod liczbą, podpis 13 px</td><td>4 w rzędzie</td><td>dla NG-139: 8000–8500 obr./min · 8 nasadek (3–25 mm) · 0,5–2 mm samym ostrzem · 1,8 m kabel</td></tr>
+<tr><td>11</td><td>Linijka nasadek</td><td>cecha „Regulacja długości strzyżenia” [pole] → lista mm</td><td>SVG skala 0–26 mm, 8 stopni + strefa ostrza 0,5–2; przyciski 44 px</td><td>jw.</td><td>JS: parsuje „3 mm, 6 mm, …” → stopnie; dotknięcie przesuwa wskaźnik i odczyt; przycisk „Samym ostrzem 0,5–2 mm” (z opisu)</td></tr>
+<tr><td>12</td><td>Co jest w pudełku</td><td>cecha „Zawartość zestawu” [pole] → lista; zdjęcia [ręcznie]</td><td>6 kafli 3×2, licznik „1×/8×”, zdjęcie lub ikona SVG</td><td>6 w rzędzie</td><td>zdjęcia z wycinanek: maszynka <code>assets/ng139/cut/czarna-04.png</code> (zdjęcie sklepu „-5”, gfx 483), stacja <code>czarna-03.png</code> („-4”, gfx 480); reszta ikony SVG</td></tr>
+<tr><td>13</td><td>Ostrza / Zasilanie</td><td>[opis] + cechy</td><td>2 karty pod sobą: zdjęcie 96 px + tytuł Oswald + 2 zdania; w „Zasilanie” ostrzeżenie o ładowarce USB 5V 1A/2A (dosłownie z opisu)</td><td>jw., szerzej</td><td>statyczne</td></tr>
+<tr><td>14</td><td>Pełna specyfikacja</td><td><code>product-short-description</code> [pole] jako tabela 2 kol.</td><td>rozwijak zamknięty</td><td>jw.</td><td><code>&lt;details&gt;</code></td></tr>
+<tr><td>15</td><td>Dla kogo</td><td>[opis] („Dla kogo”, FAQ o fade i zakresie)</td><td>2 beżowe karty: „Przy fotelu”, „W domu”, po 2 zdania</td><td>2 karty pod sobą obok wideo</td><td>statyczne</td></tr>
+<tr><td>16</td><td>Wideo</td><td><code>product-description</code> — dzisiejszy embed YouTube [pole]</td><td>260 px szer., 9:16, miniatura + play</td><td>jw.</td><td>iframe <code>youtube-nocookie</code> ładuje się po kliknięciu (waga strony)</td></tr>
+<tr><td>17</td><td>O maszynce + 3 kroki</td><td>[opis] (akapit intro + „Jak używać i dbać”)</td><td>intro 17 px + 3 karty kroków (numer w kółku)</td><td>3 w rzędzie</td><td>bez „Co wyróżnia” (dubel kafli)</td></tr>
+<tr><td>18</td><td>FAQ</td><td>[opis] (3 pytania)</td><td>akordeon <code>h-accordion</code></td><td>jw.</td><td>zamknięty</td></tr>
+<tr><td>19</td><td>Opinie</td><td><code>product-review</code> [pole]</td><td>średnia 5.00 + „13 ocen · 2 recenzje”, przycisk „Oceń i opisz”, recenzje</td><td>jw.</td><td>jak dziś</td></tr>
+<tr><td>20</td><td>Co mówią barberzy</td><td>moduł opinii ze strony głównej (Wiktoria Roszak, Akim Dashko, Jędrys) [istniejący blok HP]</td><td>3 karty: cytat, zdjęcie 52 px, imię, „Barber @instagram”; podpis „Opinie ze strony głównej sklepu”</td><td>3 w rzędzie na beżu</td><td>statyczne</td></tr>
+<tr><td>21</td><td>Skompletuj zestaw</td><td>produkty z <code>added-to-basket-modal</code> [pole] + próg darmowej dostawy 250 zł [sklep]</td><td>3 kafle + zdanie „Darmowa dostawa od 250 zł — z tą maszynką brakuje 20,01 zł” (liczone z ceny)</td><td>jw.</td><td>„Dodaj” → koszyk</td></tr>
+<tr><td>22</td><td>Bezpieczeństwo produktu</td><td>istniejący <code>h-accordion</code> [pole]</td><td>zamknięty</td><td>jw.</td><td>bez zmian</td></tr>
+<tr><td>23</td><td>Stopka</td><td>istniejąca</td><td>bez zmian</td><td>bez zmian</td><td>—</td></tr>
+<tr><td>24</td><td>Sticky pasek (telefon)</td><td><code>sticky-mobile-bars</code> [pole] + <code>product-price</code></td><td>po przewinięciu głównego CTA: <b>cena + „Wysyłka w 24 h”</b> po lewej, przycisk po prawej</td><td>brak (szpalta sticky)</td><td>IntersectionObserver na głównym CTA (w makiecie)</td></tr>
+</table>
+<h2>Stany do dopracowania po wyborze (nie w tej paczce)</h2>
+<ul>
+<li>Brak na stanie: pastylka szara, „Powiadom mnie o dostępności” zamiast CTA (istniejący <code>availability-notifier-btn</code>), sticky pasek bez ceny.</li>
+<li>Produkt bez cechy „Regulacja długości” (np. kosmetyk): sekcja Technikalia pokazuje tylko kafle z dostępnych cech, linijka ukryta.</li>
+</ul>
+<h2>Czego nie ma w makiecie, a jest na żywym sklepie (celowo pominięte)</h2>
+<p>Okno cookies, popup zniżki (edrone), baner rat Przelewy24 pod przyciskiem (do decyzji: zostawić w rozwijaku „Raty” pod ceną).</p></section><section class="doc"><p class="src">Plik: 02-specyfikacja/README-WDROZENIE.md</p><h1>Wdrożenie karty produktu 4barber.pl (linia biała, stan v6) na Shoper Storefront</h1>
+<blockquote>Paczka dla rozmowy, która pracuje z Shoperem. Przygotowana 2026-09-28 z repo <code>szczepkowski-cpu/4barber-rozwoj</code>.</blockquote>
+<blockquote>Źródło prawdy o wyglądzie: <b><code>pdp-v6.html</code></b> w tej paczce (na żywo: <a href="https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v6.html">https://szczepkowski-cpu.github.io/4barber-rozwoj/pdp-v6.html</a>).</blockquote>
+<blockquote>Porównanie z obecną kartą: <a href="https://szczepkowski-cpu.github.io/4barber-rozwoj/porownanie-2026-09-27.pdf">https://szczepkowski-cpu.github.io/4barber-rozwoj/porownanie-2026-09-27.pdf</a></blockquote>
+<h2>1. Co wdrażamy i po co (2 zdania)</h2>
+<p>Karta produktu w tym samym wyglądzie co dzisiejszy sklep (Inter, biel, pomarańczowy przycisk, czerwone akcenty), ale z inną kolejnością:</p>
+<p>na telefonie nazwa, ocena, cena, „Wysyłka w 24 h”, kolor i „Dodaj do koszyka” mieszczą się w pierwszym ekranie, a technikalia idą pod spód</p>
+<p>jako liczby, linijka nasadek i „Co jest w pudełku”. Dziś na żywej karcie (pomiar 27.09, szer. 390 px) nazwa zaczyna się na 811 px, cena ok. 1 280 px,</p>
+<p>przycisk w treści na 1 881 px; przyklejony przycisk Shopera jest, ale bez ceny.</p>
+<h2>2. Zasady (twarde)</h2>
+<ul>
+<li><b>Nic nie wymyślamy.</b> Każda liczba, parametr, opinia pochodzi z karty produktu w Shoperze. Dla NG-139 komplet faktów z datą: <code>dane-ng139-2026-09-27.md</code>.</li>
+</ul>
+<p>  Brak danych (czas pracy baterii, waga, gwarancja w miesiącach) = nie pokazujemy, nie dopisujemy.</p>
+<ul>
+<li><b>Zmiany na żywym sklepie tylko po akceptacji Szymona</b> i najpierw na kopii szablonu / w podglądzie. Do tego czasu sklep i panel = read-only.</li>
+<li><b>Nie ruszamy:</b> checkoutu, modala „Dodano do koszyka” (jest dobry), nagłówka i menu, okien cookies/zniżki (osobna decyzja), analityki/GTM/edrone.</li>
+<li>Repo makiet jest publiczne: do niego nie trafiają żadne dane z panelu Shopera.</li>
+</ul>
+<h2>3. Co widzieliśmy w żywym szablonie (odczyt DOM 28.09, read-only)</h2>
+<ul>
+<li>Sklep: <b>Shoper Premium, Storefront</b> (web components). Skin: <code>shoper_basic_copy_108</code> (kopia <code>shoper_basic</code>; własny CSS ładuje się z</li>
+</ul>
+<p>  <code>/userdata/public/skins/shoper_basic_copy_108/cache/….css</code>; dodatkowo <code>externals/custom/6895038893648/style.*.css</code>).</p>
+<ul>
+<li>Karta to <b>kompozycja modułów</b> (<code>div.grid &gt; div.grid__row &gt; div.grid__col &gt; div.module</code>). W prawej kolumnie dziś kolejno:</li>
+</ul>
+<p>  <code>product-gallery</code> (lewa kolumna) · nazwa <code>h1.section-title.product-section-title</code> · <code>product-rating</code> · <code>product-short-description</code> (lista ✓ parametrów)</p>
+<p>  · <code>product-price</code> (+ 4 ikony zaufania w tym samym module) · <code>product-quantity</code> · <code>buy-button</code> (<code>button.btn.btn_primary.btn_full-width</code>) + <code>add-to-favourites</code></p>
+<p>  · <code>product-shipping-time</code> · <code>product-codes</code>. Niżej: <code>product-description</code> (opis + wideo YouTube), <code>h-accordion</code> „Bezpieczeństwo produktu”, <code>product-review</code>.</p>
+<ul>
+<li>Telefon: <code>&lt;sticky-mobile-bars&gt;</code> ma slot <code>buy-button</code> (przyklejony „Dodaj do koszyka”), a dolny pasek Menu/Szukaj/Konto/Koszyk chowa się przy przewijaniu.</li>
+<li>Po dodaniu: <code>added-to-basket-modal</code> (pasek do darmowej dostawy 250 zł, „Skompletuj zestaw”) — zostaje bez zmian.</li>
+<li>Licznik „Paczka zostanie jutro wysłana / zamów przez HH:MM:SS” już istnieje (moduł nad ceną) — przenosimy i odchudzamy, nie budujemy od nowa.</li>
+<li>Warianty kolorów to <b>osobne produkty</b> (Czarna /111, Żółta /94, Pomarańczowa /95, Różowa /107), dziś moduł „Dostępne warianty” z 4 dużymi kaflami.</li>
+</ul>
+<p><b>WNIOSEK:</b> większość zmian to zmiana kolejności modułów w kreatorze + własny CSS skinu + 2–3 własne moduły HTML/JS. Nie potrzeba nowego skinu.</p>
+<h2>4. Kolejność docelowa (v6)</h2>
+<p>Telefon (jedna kolumna): galeria (300 px, kropki, licznik 1/8) → H1 → ocena → <b>cena + pastylka „Wysyłka w 24 h”</b> → <b>Kolor: Czarna + 4 próbki 48 px</b></p>
+<p>→ <b>Dodaj do koszyka + serce</b> → 4 gwarancje (2×2, wyciszone) → licznik (jedna linia) → <b>Technikalia</b> (4 kafle liczb, linijka nasadek, „Co jest w pudełku”,</p>
+<p>Ostrza, Zasilanie + ostrzeżenie o ładowarce, „Pełna specyfikacja” w rozwijaku) → Dla kogo (2 karty) → wideo → O maszynce (intro + 3 kroki) → FAQ (akordeon)</p>
+<p>→ Opinie → Co mówią barberzy (3 cytaty ze zdjęciem) → Skompletuj zestaw (3 produkty + próg 250 zł) → Bezpieczeństwo produktu (rozwijak) → stopka.</p>
+<p>Desktop (1024+): galeria 55 % lewo (miniatury pionowo), <b>prawa szpalta = jedna karta z obramowaniem, <code>position: sticky</code></b>: H1 → ocena → cena+wysyłka →</p>
+<p>kolor → CTA → gwarancje → licznik. Treść pod galerią w lewej kolumnie.</p>
+<p>Szczegóły każdej sekcji, źródło danych i zachowanie: <b><code>SEKCJE.md</code></b>. Kod: <code>pdp-v6.html</code> (całość), <code>pdp-v6.css</code>, <code>pdp-v6.js</code> (wyjęte dla wygody portowania).</p>
+<h2>5. Tokeny (z żywego sklepu, odczyt 27.09)</h2>
+<p>Tekst <code>#121212</code>, drugorzędny <code>#454545</code>, tło <code>#fff</code>, beż sekcji <code>#F4F2EE</code>, chip <code>#E2E5E9</code>, linia <code>#C5CBD3</code>, <b>CTA pomarańcz <code>#F57905</code></b> (radius 10 px, 54 px, tekst biały 700),</p>
+<p>czerwień akcentów <code>#C61D2E</code> (ikony zaufania, badge), zieleń dostępności <code>#2E9B4E</code>, pastylka wysyłki tło <code>#E9F6EC</code> / tekst <code>#1E7B3A</code>.</p>
+<p>Fonty: <b>Inter</b> (tekst, H1), <b>Oswald 600</b> (nagłówki sekcji, liczby w kaflach). Promienie 10/14 px, cień <code>0 4px 6px -4px rgba(17,19,22,.08), 0 12px 16px -4px rgba(17,19,22,.08)</code>.</p>
+<h2>6. Kryteria odbioru (mierzalne, Playwright/DevTools)</h2>
+<ol>
+<li>Telefon 390×844, produkt NG-139 Czarna, po zamknięciu okien: dolna krawędź „Dodaj do koszyka” <b>≤ 730 px</b>; widoczne nazwa, ocena, cena, „Wysyłka w 24 h”, 4 próbki koloru.</li>
+<li>Desktop 1440×900: „Dodaj do koszyka” w całości nad 900 px; prawa szpalta przyklejona przy przewijaniu.</li>
+<li>Przyklejony pasek na telefonie pokazuje <b>cenę i dostępność obok przycisku</b> (dziś tylko przycisk).</li>
+<li>Lista parametrów NIE występuje przed ceną; technikalia raz (kafle + linijka + pudełko), pełna tabela tylko w rozwijaku.</li>
+<li>Wideo ma miniaturę (iframe YouTube dopiero po kliknięciu). Warianty kolorów jako próbki, nie kafle.</li>
+<li>Modal „Dodano do koszyka”, checkout, analityka (GA4/GTM/edrone/TikTok) i JSON-LD działają jak przed zmianą (sprawdzić dataLayer po dodaniu do koszyka).</li>
+<li>Zero nowych liczb spoza karty produktu.</li>
+</ol>
+<p>Pomiar (konsola):</p>
+<pre>
+const r = document.querySelector(&#x27;buy-button button, .btn_primary.btn_full-width&#x27;).getBoundingClientRect(); console.log(r.top + scrollY, r.bottom + scrollY)
+</pre>
+<h2>7. Zawartość paczki</h2>
+<ul>
+<li><code>pdp-v6.html</code> · <code>pdp-v6.css</code> · <code>pdp-v6.js</code> — makieta i jej kod (statyczny, bez zależności; fonty z Google Fonts).</li>
+<li><code>SEKCJE.md</code> — sekcja po sekcji: co, skąd dane w Shoperze, jak na telefonie/desktopie, zachowanie.</li>
+<li><code>KOMENTARZE-SEKCJI.md</code> — komentarze z kodu HTML (po co jest każdy blok).</li>
+<li><code>dane-ng139-2026-09-27.md</code> — wszystkie fakty produktu z datą odczytu.</li>
+<li><code>assets/</code> — zdjęcia ze sklepu (<code>ng139/</code>), wycinanki z przezroczystym tłem (<code>ng139/cut/</code>, zrobione z tych zdjęć), logo, zdjęcia barberów ze strony głównej, produkty do zestawu.</li>
+</ul>
+<p>  Mapowanie plików na zdjęcia w Shoperze (<code>/userdata/public/gfx/&lt;id&gt;/…</code>): <code>czarna-01</code>=2015 (miniatura, przód na stacji) · <code>02</code>=320 („-2”, ostrze z góry) · <code>03</code>=480 („-4”, stacja)</p>
+<p>  · <code>04</code>=483 („-5”, z boku) · <code>05</code>=481 („-6”, spód z zaczepem) · <code>06</code>=482 („-7”, ostrze pod kątem) · <code>07</code>=484 („-8”, tył) · <code>08</code>=485 („-9”). Warianty: żółta 2033, pomarańczowa 2016, różowa 2018.</p>
+<p>  Produkty do zestawu: trymer NG-339 gfx 2034, shaver NG-984A gfx 2385, NOTBAD Blade Oil gfx 2231. W Shoperze używać oryginałów, nie kopii z paczki.</p>
+<ul>
+<li><code>zrzuty/</code> — v6 (telefon/desktop, pierwszy ekran i cała strona) oraz <code>obecna-karta/</code> (stan 27.09 do porównania).</li>
+</ul></section></body></html>

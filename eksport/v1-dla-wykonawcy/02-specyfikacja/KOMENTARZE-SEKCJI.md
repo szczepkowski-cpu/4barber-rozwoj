@@ -1,0 +1,21 @@
+# Komentarze sekcji z pdp-v6.html (w kolejności występowania)
+
+- Sprite ikon: jedna rodzina, kreska 1,75 px, siatka 24 px; używane przez <use href="#i-…"> w całej stronie
+- Pasek promocji — ten sam komunikat, który sklep pokazuje dziś na każdej stronie
+- Nagłówek: mobile = menu, logo, lupa, koszyk; desktop = logo, wyszukiwarka, konto/ulubione/koszyk + menu kategorii
+- Okruszki: jedna linia, ostatni element skracany wielokropkiem na telefonie
+- Galeria: na telefonie przesuwana palcem (kropki + licznik), na desktopie miniatury w pionie + strzałki
+- Buy-box: wszystko, czego trzeba do decyzji, w pierwszym ekranie telefonu; na desktopie przyklejony po prawej
+- Licznik godziny granicznej wysyłki — mechanizm, który sklep ma już dziś
+- Technikalia: pod spodem, ale nie jako tabela — cztery liczby z karty, linijka nasadek do dotknięcia, zestaw na zdjęciach, materiał i zasilanie; pełna tabela w rozwijanym „Pełna specyfikacja”
+- Dla kogo: dwie krótkie karty (sklep sam rozróżnia barber / prywatnie); zdania wyłącznie z opisu karty
+- Wideo sklepu: lekka miniatura, iframe YouTube (nocookie) ładuje się dopiero po kliknięciu
+- Opis produktu: treść karty dosłownie, pocięta nagłówkami Oswald jak na sklepie
+- FAQ: trzy pytania z karty jako akordeon, żeby nie wydłużać strony
+- Opinie o produkcie: ocena, liczby i obie recenzje dosłownie
+- Głos barberów: cytaty ze strony głównej sklepu, wyraźnie podpisane, że nie dotyczą tej karty
+- Skompletuj zestaw: te same 3 produkty, które sklep proponuje po dodaniu do koszyka, + próg darmowej dostawy
+- Bezpieczeństwo produktu (GPSR): dane producenta i importera, zwinięte
+- Mini-stopka: kontakt z ludźmi, płatności, dostawa, platforma + chip wersji makiety
+- Sticky CTA (tylko telefon): pokazuje się, gdy główny przycisk zniknie z ekranu
+- Panel po dodaniu do koszyka: potwierdzenie, próg darmowej dostawy i „Skompletuj zestaw” (makieta, bez prawdziwego koszyka)
